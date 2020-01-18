@@ -135,21 +135,27 @@ html(lang='ru')
                       | ночей!
                   .slider__info-btns
                     a.slider__info-link Посмотреть сайт
-        section.section.about
+        section.about
           .container.about__container
-            h2.about__title Что обо мне говорят
-            .about__arrows
-            .about__review
-              article.about__review__text
-                | Этот парень проходил обучение веб-разработке не где-то, а в
-                | LoftSchool! 4,5 месяца только самых тяжелых испытаний и
-                | бессонных ночей!
-              .about__review__author
-                .about__review__author__avatar
-                .about__review__author__name Ковальчук Дмитрий
-                .about__review__author__pos
-                  | Основатель Loftschool
-        section.section.contact
+            .about__slider
+              h2.about__title Что обо мне говорят
+              .about__btns
+                a.direction-btn.direction-btn--prev
+                a.direction-btn.direction-btn--next
+              .about__comment
+                .comment
+                  article.comment__text
+                    | Этот парень проходил обучение веб-разработке не где-то, а в
+                    | LoftSchool! 4,5 месяца только самых тяжелых испытаний и
+                    | бессонных ночей!
+                  .comment__author
+                    .comment__author-avatar
+                      .avatar
+                      +image('content/userfiles/o8CzkPF3Ai8.jpg', 'user-pic', 'avatar-image')
+                    .comment__author-name Ковальчук Дмитрий
+                    .comment__author-pos
+                      | Основатель Loftschool
+        section.contact
           .container.contact__container
             h2.contact__title Связаться со мной
             form.contact__form(action='')
