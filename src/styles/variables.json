@@ -1,6 +1,13 @@
 {
   "text-color": "#414c63",
   "links-color": "#4b6fd7",
+  "intro_social_icon-color": "#e6e6e6",
+  "progress_bg-color": "#2c2927",
+  "orange-color": "#dc9322",
+  "works_slider_arrow-color": "#353e4e",
+  "works_tag_bg-color": "#586fd3",
+  "works_tag-color": "#989ca3",
+  "works_link-color": "#586fd3",
   "bp-desktop-hd": "1800px",
   "bp-desktop": "1200px",
   "bp-tablets": "768px",

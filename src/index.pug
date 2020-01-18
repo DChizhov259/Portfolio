@@ -1,15 +1,185 @@
 include ./mixins.pug
-
-<!DOCTYPE html>
-html(lang="en")
+//- .maincontent
+      //-   +image('content/user.jpg', 'user-pic')
+      //-   +icon('link', 'link-class')
+      //-   .icon-bg
+doctype html
+html(lang='ru')
   head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
     title Portfolio | main page
   body
     .wrapper
-      .maincontent
-        +image('content/user.jpg', 'user-pic')
-        +icon('link', 'link-class')
-        .icon-bg
+      main.main__content
+        .welcome-section
+          section.intro
+            header.intro__header
+              .intro__logo
+                .logo ДЧ
+              .intro__menu
+                - var menu = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
+                nav.navigation
+                  ul.navigation__menu
+                    each item in menu
+                      li.navigation__item
+                        a.navigation__link #{item}
+              .intro__links
+                - var icons = ["insta", "vk", "github"];
+                ul.socials
+                  each item in icons
+                    li.socials__item
+                      a.socials__link(href='#')
+                        +icon(item, 'socials__icon')
+            .intro__content
+              .intro__title
+                | Личный сайт
+                br
+                | веб разработчика
+              h1.intro__dev-name
+                | Дмитрий
+                br
+                | Чижов
+            .intro__scroll-btn
+              a.scroll-btn Скролл
+          section.briefly
+            .briefly__left
+              .user
+                .user__avatar
+                  img.avatar
+                .user__info
+                  ul.user__info__list
+                    li.user__info__item
+                      .user__info__item Проживаю:
+                      .user__info__fact Краснотурьинск
+                    li.user__info__item
+                      .user__info__item Возраст:
+                      .user__info__fact 29 лет
+                    li.user__info__item
+                      .user__info__item Родился:
+                      .user__info__fact 9 октября 1990
+            .briefly__right
+              .briefly__greeting
+                | Привет, меня зовут
+                br
+                span Дмитрий Чижов
+                br
+                | Я
+                |                 занимаюсь разработкой современных сайтов и приложений. Мне
+                |                 нравится делать интересные и современные проекты.
+              .briefly__postscript
+                | Этот сайт я сделал в рамках обучения в Школе онлайн образования
+                | LoftSchool. Чуть позже я освежу в нём свой контент. А пока
+                | посмотрите, как тут всё классно и красиво!
+        section.section.progress
+          .container.progress__container
+            h2.progress__title Чем я могу быть полезен вам
+            .progress__desc
+              | Этот сайт я сделал в рамках обучения в Школе онлайн образования
+              | LoftSchool. Чуть позже я освежу в нём свой контент. А пока
+              | посмотрите, как тут всё классно и красиво!
+            .progress__direct
+              .progress__direct__title
+              ul.progress__direct__list
+                li.progress__direct__item
+                li.progress__direct__item
+                li.progress__direct__item
+                li.progress__direct__item
+              .progress__direct__title
+              ul.progress__direct__list
+                li.progress__direct__item
+                li.progress__direct__item
+                li.progress__direct__item
+                li.progress__direct__item
+        section.section.works
+          .container.works__container
+            h2.works__title Мои работы
+            .works__preview-image
+            .works__slider-container
+              .works__slider
+                .works__slider__item.works__slider__item--active
+                .works__slider__item
+                .works__slider__item
+                .works__slider__item
+              a#left.arrow(href='#') <
+              a#right.arrow(href='#') >
+            .works__number 2
+            .works__preview-desc
+              .works__preview-desc__tags
+              h3.works__preview-desc__title Сайт школы образования
+              article.works__preview-desc__text
+                | Этот парень проходил обучение веб-разработке не где-то, а в
+                | LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных
+                | ночей!
+              h3.works__preview__link Посмотреть сайт
+        section.section.about
+          .container.about__container
+            h2.about__title Что обо мне говорят
+            .about__arrows
+            .about__review
+              article.about__review__text
+                | Этот парень проходил обучение веб-разработке не где-то, а в
+                | LoftSchool! 4,5 месяца только самых тяжелых испытаний и
+                | бессонных ночей!
+              .about__review__author
+                .about__review__author__avatar
+                .about__review__author__name Ковальчук Дмитрий
+                .about__review__author__pos
+                  | Основатель Loftschool
+        section.section.contact
+          .container.contact__container
+            h2.contact__title Связаться со мной
+            form.contact__form(action='')
+              .contact__form__row
+                label.contact__form__row__block(for='')
+                  .contact__form__row__block-label
+                    | Введите ваше имя
+                  input.contact__form__row__block-input(name='name', type='text')
+                label.contact__form__row__block(for='')
+                  .contact__form__row__block-label
+                    | Введите ваш email
+                  input.contact__form__row__block-input(name='email', type='email')
+              .contact__form__row
+                label.contact__form__row__block(for='')
+                  .contact__form__row__block-label
+                    | Сообщение к письму
+                  input.contact__form__row__block-input(name='text', type='text')
+              .contact__form__row__button
+                button.contact__form__send-button(name='', type='submit', value='Отправить')
+      footer.footer
+        .container.footer__container
+          .copyright © 2019
+          .footer__title
+            .footer__dev-name
+              | Дмитрий
+              br
+              | Чижов
+            .footer__title
+              | Личный сайт
+              br
+              | веб разработчика
+          nav.navigation
+            ul.navigation__menu
+              li.navigation__item
+                a.navigation__link(href='#') Главная
+              li.navigation__item
+                a.navigation__link(href='#') Обо мне
+              li.navigation__item
+                a.navigation__link(href='#') Навыки
+              li.navigation__item
+                a.navigation__link(href='#') Работы
+              li.navigation__item
+                a.navigation__link(href='#') Отзывы
+              li.navigation__item
+                a.navigation__link(href='#') Связаться
+          .footer__desc-social-block
+            .footer__desc
+              | Этот сайт я сделал в рамках обучения в Школе онлайн образования
+              | Loftschool
+            .footer__social
+          .footer__proverb
+            .footer__proverb__text
+              | Всегда пишите код так, будто сопровождать его будет склонный к
+              | насилию психопат, который знает где вы живете
+            .footer__proverb__author Martin Golding
