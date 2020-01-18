@@ -14,7 +14,7 @@ html(lang='ru')
     .wrapper
       main.main__content
         .welcome-section
-          section.intro
+          section.intro.container
             header.intro__header
               .intro__logo
                 .logo ДЧ
@@ -43,11 +43,12 @@ html(lang='ru')
                 | Чижов
             .intro__scroll-btn
               a.scroll-btn Скролл
-          section.briefly
+          section.briefly.container
             .briefly__left
               .user
                 .user__avatar
-                  img.avatar
+                  .avatar
+                    +image('content/userfiles/user.jpg', 'user-pic', 'avatar-image')
                 .user__info
                   -
                     var rows = [
