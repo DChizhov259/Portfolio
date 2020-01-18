@@ -49,16 +49,19 @@ html(lang='ru')
                 .user__avatar
                   img.avatar
                 .user__info
-                  ul.user__info__list
-                    li.user__info__item
-                      .user__info__item Проживаю:
-                      .user__info__fact Краснотурьинск
-                    li.user__info__item
-                      .user__info__item Возраст:
-                      .user__info__fact 29 лет
-                    li.user__info__item
-                      .user__info__item Родился:
-                      .user__info__fact 9 октября 1990
+                  -
+                    var rows = [
+                      ["Проживаю:", "Краснотурьинск"],
+                      ["Возраст:", "29 лет"],
+                      ["Родился:", "9 октября 1990"]
+                    ];
+
+                  table.user__data
+                    table.user__data-table
+                      each row in rows
+                        tr.user__data-row
+                          each cell in row
+                            td #{cell}
             .briefly__right
               .briefly__greeting
                 | Привет, меня зовут
