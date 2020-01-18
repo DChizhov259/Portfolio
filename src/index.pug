@@ -105,27 +105,36 @@ html(lang='ru')
                               .skill
                                 svg.skill__circle
                                 .skill__title #{skill}
-        section.section.works
+        section.works
           .container.works__container
             h2.works__title Мои работы
-            .works__preview-image
-            .works__slider-container
-              .works__slider
-                .works__slider__item.works__slider__item--active
-                .works__slider__item
-                .works__slider__item
-                .works__slider__item
-              a#left.arrow(href='#') <
-              a#right.arrow(href='#') >
-            .works__number 2
-            .works__preview-desc
-              .works__preview-desc__tags
-              h3.works__preview-desc__title Сайт школы образования
-              article.works__preview-desc__text
-                | Этот парень проходил обучение веб-разработке не где-то, а в
-                | LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных
-                | ночей!
-              h3.works__preview__link Посмотреть сайт
+            .works__content
+              .slider
+                .slider__display
+                  img.slider__display-pic
+                  .slider__display-mini
+                    ul.slider-mini
+                      li.slider-mini__item
+                        a.slider-mini__link(href="")
+                          img.slider-mini__pic(src="", alt="")
+                  .slider__buttons
+                    a.direction-btn.direction-btn--up
+                    a.direction-btn.direction-btn--down
+                .slider__number 2
+                .slider__info
+                  .slider__info__tags
+                    - var tags = ["HTML", "CSS", "Javascript"];
+                    ul.tags
+                    each item in tags
+                      li.tags__item #{item}
+                  .slider__info__desc
+                    h3.slider__info__desc-title Сайт школы образования
+                    article.slider__info__desc-text
+                      | Этот парень проходил обучение веб-разработке не где-то, а в
+                      | LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных
+                      | ночей!
+                  .slider__info-btns
+                    a.slider__info-link Посмотреть сайт
         section.section.about
           .container.about__container
             h2.about__title Что обо мне говорят
