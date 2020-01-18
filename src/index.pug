@@ -14,68 +14,70 @@ html(lang='ru')
     .wrapper
       main.main__content
         .welcome-section
-          section.intro.container
-            header.intro__header
-              .intro__logo
-                .logo ДЧ
-              .intro__menu
-                - var menu = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
-                nav.navigation
-                  ul.navigation__menu
-                    each item in menu
-                      li.navigation__item
-                        a.navigation__link #{item}
-              .intro__links
-                - var icons = ["insta", "vk", "github"];
-                ul.socials
-                  each item in icons
-                    li.socials__item
-                      a.socials__link(href='#')
-                        +icon(item, 'socials__icon')
-            .intro__content
-              .intro__title
-                | Личный сайт
-                br
-                | веб разработчика
-              h1.intro__dev-name
-                | Дмитрий
-                br
-                | Чижов
-            .intro__scroll-btn
-              a.scroll-btn Скролл
-          section.briefly.container
-            .briefly__left
-              .user
-                .user__avatar
-                  .avatar
-                    +image('content/userfiles/user.jpg', 'user-pic', 'avatar-image')
-                .user__info
-                  -
-                    var rows = [
-                      ["Проживаю:", "Краснотурьинск"],
-                      ["Возраст:", "29 лет"],
-                      ["Родился:", "9 октября 1990"]
-                    ];
+          section.intro
+            .container.intro__container
+              header.intro__header
+                .intro__logo
+                  .logo ДЧ
+                .intro__menu
+                  - var menu = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
+                  nav.navigation
+                    ul.navigation__menu
+                      each item in menu
+                        li.navigation__item
+                          a.navigation__link #{item}
+                .intro__links
+                  - var icons = ["insta", "vk", "github"];
+                  ul.socials
+                    each item in icons
+                      li.socials__item
+                        a.socials__link(href='#')
+                          +icon(item, 'socials__icon')
+              .intro__content
+                .intro__title
+                  | Личный сайт
+                  br
+                  | веб разработчика
+                h1.intro__dev-name
+                  | Дмитрий
+                  br
+                  | Чижов
+              .intro__scroll-btn
+                a.scroll-btn Скролл
+          section.briefly
+            .container.briefly__container
+              .briefly__left
+                .user
+                  .user__avatar
+                    .avatar
+                      +image('content/userfiles/user.jpg', 'user-pic', 'avatar-image')
+                  .user__info
+                    -
+                      var rows = [
+                        ["Проживаю:", "Краснотурьинск"],
+                        ["Возраст:", "29 лет"],
+                        ["Родился:", "9 октября 1990"]
+                      ];
 
-                  table.user__data
-                    table.user__data-table
-                      each row in rows
-                        tr.user__data-row
-                          each cell in row
-                            td #{cell}
-            .briefly__right
-              .briefly__greeting
-                | Привет, меня зовут
-                br
-                span Дмитрий Чижов
-                br
-                | Я
-                |                 занимаюсь разработкой современных сайтов и приложений. Мне
-                |                 нравится делать интересные и современные проекты.
-              .briefly__postscript
-                | Этот сайт я сделал в рамках обучения в Школе онлайн образования
-                | LoftSchool. Чуть позже я освежу в нём свой контент. А пока
-                | посмотрите, как тут всё классно и красиво!
+                    table.user__data
+                      table.user__data-table
+                        each row in rows
+                          tr.user__data-row
+                            each cell in row
+                              td #{cell}
+              .briefly__right
+                .briefly__greeting
+                  | Привет, меня зовут
+                  br
+                  span Дмитрий Чижов
+                  br
+                  | Я
+                  |                 занимаюсь разработкой современных сайтов и приложений. Мне
+                  |                 нравится делать интересные и современные проекты.
+                .briefly__postscript
+                  | Этот сайт я сделал в рамках обучения в Школе онлайн образования
+                  | LoftSchool. Чуть позже я освежу в нём свой контент. А пока
+                  | посмотрите, как тут всё классно и красиво!
         section.section.progress
           .container.progress__container
             h2.progress__title Чем я могу быть полезен вам
