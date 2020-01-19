@@ -142,19 +142,23 @@ html(lang='ru')
               .about__btns
                 a.direction-btn.direction-btn--prev
                 a.direction-btn.direction-btn--next
-              .about__comment
-                .comment
-                  article.comment__text
-                    | Этот парень проходил обучение веб-разработке не где-то, а в
-                    | LoftSchool! 4,5 месяца только самых тяжелых испытаний и
-                    | бессонных ночей!
-                  .comment__author
-                    .comment__author-avatar
-                      .avatar
-                      +image('content/userfiles/o8CzkPF3Ai8.jpg', 'user-pic', 'avatar-image')
-                    .comment__author-name Ковальчук Дмитрий
-                    .comment__author-pos
-                      | Основатель Loftschool
+              .about__comments
+                -
+                  var commentList = [
+                    {
+                      ava: "content/userfiles/o8CzkPF3Ai8.jpg",
+                      author: "Ковальчук Дмитрий",
+                      position: "Основатель LoftSchool",
+                      text: "Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!"
+                    }, {
+                      ava: "content/userfiles/Di51WMRvTek.jpg",
+                      author: "Владимир Сабанцев",
+                      position: "Преподаватель",
+                      text: "Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах"
+                    }
+                  ]
+                for comment in commentList
+                  +comment(comment)
         section.contact
           .container.contact__container
             h2.contact__title Связаться со мной

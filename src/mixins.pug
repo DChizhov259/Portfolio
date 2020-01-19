@@ -5,3 +5,13 @@ mixin icon(name, className)
 
 mixin image(path, className)
   img(src=require(`images/${path}`) class=className)
+
+mixin comment(comment)
+  .comment
+    article.comment__text=comment.text
+    .comment__author
+      .comment__author-avatar
+        .avatar
+          +image(comment.ava, 'user-pic', 'avatar-image')
+      .comment__author-name=comment.author
+      .comment__author-pos=comment.position
