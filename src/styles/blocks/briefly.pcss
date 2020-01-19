@@ -1,3 +1,7 @@
+.briefly {
+  padding: 7% 20% 15%;
+}
+
 .briefly__container {
   display: flex;
   justify-content: space-between;
@@ -8,5 +12,24 @@
 }
 
 .briefly__right {
-  width: 60%;
+  width: 55%;
+}
+
+.briefly__greeting {
+  margin-bottom: 100px;
+}
+
+.briefly__username {
+  margin: 10px 0;
+}
+
+.briefly__postscript {
+  &::before {
+    content: "*";
+    display: block;
+    position: absolute;
+    color: #352123;
+    font-size: 40px;
+    transform: rotate(15deg) translate(-48px, 5px);
+  }
 }
