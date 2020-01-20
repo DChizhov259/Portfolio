@@ -116,15 +116,27 @@ html(lang='ru')
             .works__content
               .slider
                 .slider__display
-                  img.slider__display-pic
+                  .slider__display-pic
+                    +image('content/userfiles/1.jpg', 'slider-pic', 'slider-image')
                   .slider__display-mini
                     ul.slider-mini
+                      li.slider-mini__item.slider-mini__item--active
+                        a.slider-mini__link
+                          +image('content/userfiles/1.jpg', 'slider-mini-pic', 'slider-image')
                       li.slider-mini__item
-                        a.slider-mini__link(href="")
-                          img.slider-mini__pic(src="", alt="")
+                        a.slider-mini__link
+                          +image('content/userfiles/2.jpg', 'slider-mini-pic', 'slider-image')
+                      li.slider-mini__item
+                        a.slider-mini__link
+                          +image('content/userfiles/3.jpg', 'slider-mini-pic', 'slider-image')
+                      li.slider-mini__item
+                        a.slider-mini__link
+                          +image('content/userfiles/4.jpg', 'slider-mini-pic', 'slider-image')
                   .slider__buttons
-                    a.direction-btn.direction-btn--up
-                    a.direction-btn.direction-btn--down
+                    a.direction-btn.direction-btn--next
+                      +icon('arrow-down', 'slider-arrow')
+                    a.direction-btn.direction-btn--prev
+                      +icon('arrow-down', 'slider-arrow')
                 .slider__number 2
                 .slider__info
                   .slider__info__tags
