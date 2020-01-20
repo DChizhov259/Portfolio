@@ -153,51 +153,54 @@ html(lang='ru')
                   .slider__info-btns
                     +icon('link', 'link-icon')
                     a.slider__info-link Посмотреть сайт
-        section.about
-          .container.about__container
-            .about__slider
-              h2.about__title Что обо мне говорят
-              .about__btns
-                a.direction-btn.direction-btn--prev
-                a.direction-btn.direction-btn--next
-              .about__comments
-                -
-                  var commentList = [
-                    {
-                      ava: "content/userfiles/o8CzkPF3Ai8.jpg",
-                      author: "Ковальчук Дмитрий",
-                      position: "Основатель LoftSchool",
-                      text: "Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!"
-                    }, {
-                      ava: "content/userfiles/Di51WMRvTek.jpg",
-                      author: "Владимир Сабанцев",
-                      position: "Преподаватель",
-                      text: "Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах"
-                    }
-                  ]
-                each comment in commentList
-                  +comment(comment)
-        section.contact
-          .container.contact__container
-            h2.contact__title Связаться со мной
-            .contact__form-block
-              form.contact__form(action='')
-                .contact__form-row
-                  label.contact__form-row__block(for='')
-                    .contact__form-row__block-label
-                      | Введите ваше имя
-                    input.contact__form-row__block-input(name='name', type='text')
-                  label.contact__form-row__block(for='')
-                    .contact__form-row__block-label
-                      | Введите ваш email
-                    input.contact__form-row__block-input(name='email', type='email')
-                .contact__form-row
-                  label.contact__form-row__block(for='')
-                    .contact__form-row__block-label
-                      | Сообщение к письму
-                    input.contact__form-row__block-input(name='text', type='text')
-                .contact__form-row__button
-                  button.contact__form__send-btn(name='', type='submit', value='Отправить')
+        .about-contact-section
+          section.about
+            .container.about__container
+              .about__slider
+                h2.about__title Что обо мне говорят
+                .about__btns
+                  a.direction-btn.direction-btn--prev
+                    +icon('arrow-down', 'slider-arrow')
+                  a.direction-btn.direction-btn--next
+                    +icon('arrow-down', 'slider-arrow')
+                .about__comments
+                  -
+                    var commentList = [
+                      {
+                        ava: "content/userfiles/o8CzkPF3Ai8.jpg",
+                        author: "Ковальчук Дмитрий",
+                        position: "Основатель LoftSchool",
+                        text: "Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!"
+                      }, {
+                        ava: "content/userfiles/Di51WMRvTek.jpg",
+                        author: "Владимир Сабанцев",
+                        position: "Преподаватель",
+                        text: "Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах"
+                      }
+                    ]
+                  each comment in commentList
+                    +comment(comment)
+          section.contact
+            .container.contact__container
+              h2.contact__title Связаться со мной
+              .contact__form-block
+                form.contact__form(action='')
+                  .contact__form-row
+                    label.contact__form-row__block(for='')
+                      .contact__form-row__block-label
+                        | Введите ваше имя
+                      input.contact__form-row__block-input(name='name', type='text')
+                    label.contact__form-row__block(for='')
+                      .contact__form-row__block-label
+                        | Введите ваш email
+                      input.contact__form-row__block-input(name='email', type='email')
+                  .contact__form-row
+                    label.contact__form-row__block(for='')
+                      .contact__form-row__block-label
+                        | Сообщение к письму
+                      input.contact__form-row__block-input(name='text', type='text')
+                  .contact__form-row__button
+                    button.contact__form__send-btn(name='', type='submit', value='Отправить')
       footer.footer
         .container.footer__container
           .footer__left-block
