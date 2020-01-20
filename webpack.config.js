@@ -9,53 +9,53 @@ const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = (env, argv) => {
   const isProductionBuild = argv.mode === "production";
-  const publicPath = "/";
+  const publicPath = '/';
 
   const pcss = {
     test: /\.(p|post|)css$/,
     use: [
-      isProductionBuild ? MiniCssExtractPlugin.loader : "vue-style-loader", //если сборка для Разработки - генерация тегов style и вставка их на страницу
-      "css-loader", //преобразование в строку, подключение импортов, которые есть внутри стилей
-      "postcss-loader" //преобразование postcss в css
+      isProductionBuild ? MiniCssExtractPlugin.loader : "vue-style-loader",
+      "css-loader",
+      "postcss-loader"
     ]
-  }; //правило обработки зависимостей pcss
+  };
 
   const vue = {
     test: /\.vue$/,
     loader: "vue-loader"
-  }; //правило обработки зависимостей vue
+  };
 
   const js = {
     test: /\.js$/,
-    loader: "babel-loader", //конвертация в ES5 в соответсвии с browserslist из package.json
+    loader: "babel-loader",
     exclude: /node_modules/,
     options: {
-      presets: ["@babel/preset-env"],
+      presets: ['@babel/preset-env'],
       plugins: ["@babel/plugin-syntax-dynamic-import"]
     }
-  }; //правило обработки зависимостей js
+  };
 
   const files = {
     test: /\.(png|jpe?g|gif|woff2?)$/i,
-    loader: "file-loader", //простая загрузка в папку dist
+    loader: "file-loader",
     options: {
-      name: "[hash].[ext]" //имя файла hash
+      name: "[hash].[ext]"
     }
-  }; //правило обработки зависимостей для прочих файлов
+  };
 
   const svg = {
     test: /\.svg$/,
     use: [
       {
-        loader: "svg-sprite-loader", //сборка спрайта
+        loader: "svg-sprite-loader",
         options: {
           extract: true,
           spriteFilename: svgPath => `sprite${svgPath.substr(-4)}`
         }
       },
-      "svg-transform-loader", //можно в пути указать параметры ./test.svg?fill=#000&stroke=red
+      "svg-transform-loader",
       {
-        loader: "svgo-loader", //удаление из файлов мусора, а также fill и stroke
+        loader: "svgo-loader",
         options: {
           plugins: [
             { removeTitle: true },
@@ -68,7 +68,7 @@ module.exports = (env, argv) => {
         }
       }
     ]
-  }; //правило обработки зависимостей svg
+  };
 
   const pug = {
     test: /\.pug$/,
@@ -81,7 +81,7 @@ module.exports = (env, argv) => {
         use: ["pug-loader"]
       }
     ]
-  }; //правило обработки зависимостей pug
+  };
 
   const config = {
     entry: {
@@ -90,19 +90,19 @@ module.exports = (env, argv) => {
     },
     output: {
       path: path.resolve(__dirname, "./dist"),
-      filename: "[name].[hash].build.js", //hash нужен для браузера, показывет, были ли изменения в файлах проекта, при совпадении возмет файл из кэша
+      filename: "[name].[hash].build.js",
       publicPath: isProductionBuild ? publicPath : "",
-      chunkFilename: "[chunkhash].js" //в этом файле объединяются общие зависимости из разных файлов
+      chunkFilename: "[chunkhash].js"
     },
     module: {
-      rules: [pcss, vue, js, files, svg, pug] //правила обработки зависимостей для webpack, описание в начале файла
+      rules: [pcss, vue, js, files, svg, pug]
     },
     resolve: {
       alias: {
-        vue$: "vue/dist/vue.esm.js", //если где-то будет import "vue", то будет подключен именно сборка vue.esm.js
-        images: path.resolve(__dirname, "src/images") //сокращение пути с картинками
+        vue$: "vue/dist/vue.esm.js",
+        images: path.resolve(__dirname, "src/images")
       },
-      extensions: ["*", ".js", ".vue", ".json"] // при подключении import "./test/new" поиск в папке new index.js, index.vue и т.д.
+      extensions: ["*", ".js", ".vue", ".json"]
     },
     devServer: {
       historyApiFallback: true,
