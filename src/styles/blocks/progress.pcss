@@ -1,0 +1,55 @@
+.progress {
+  height: 100vh;
+  background-image: url("../images/content/Фон.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url("../images/content/Руки.png");
+    background-repeat: no-repeat;
+    background-position: top left;
+    transform: translate(0, 85px);
+    z-index: 0.1;
+  }
+}
+
+.progress__container {
+  /* padding: 5% 10% 15% 30%; */
+  padding-left: 35%;
+  padding-right: 10%;
+}
+
+.progress__desc-block {
+  width: 480px;
+  margin-bottom: 60px;
+}
+
+.progress__title {
+  margin-bottom: 30px;
+}
+
+.progress__skills-block {
+  width: 630px;
+  margin-left: auto;
+}
+
+.skills-direct__item {
+  margin-bottom: 15px;
+}
+
+.skills-row__title {
+  margin-bottom: 12px;
+}
+
+.skills {
+  display: flex;
+  justify-content: space-between;
+}
