@@ -13,5 +13,6 @@ mixin comment(comment)
       .comment__author-avatar
         .avatar
           +image(comment.ava, 'user-pic', 'avatar-image')
-      .comment__author-name=comment.author
-      .comment__author-pos=comment.position
+      .comment__author-desc
+        .comment__author-name=comment.author
+        .comment__author-pos=comment.position
