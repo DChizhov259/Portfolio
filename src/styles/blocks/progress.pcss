@@ -1,31 +1,29 @@
 .progress {
-  height: 100vh;
+  /* height: 100vh; */
   background-image: url("../images/content/Фон.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
   display: flex;
   align-items: center;
+  z-index: -10;
 
   &::before {
     content: "";
     display: block;
     position: absolute;
-    height: 120%;
+    height: 130%;
     width: 100%;
     background-image: url("../images/content/Руки.png");
     background-repeat: no-repeat;
     background-position: top 45% left;
-    transform: translate(0, 85px);
-    z-index: 0.1;
+    transform: translate(0, 10%);
+    z-index: -1;
   }
 }
 
 .progress__container {
-  /* padding: 5% 10% 15% 30%; */
-  margin-left: 38%;
-  /* margin-right: 10%; */
-  max-width: 50%;
+  padding: 15vh 12.1% 15vh 34.4%;
 }
 
 .progress__desc-block {
@@ -44,6 +42,10 @@
 
 .skills-direct__item {
   margin-bottom: 15px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .skills-row__title {
