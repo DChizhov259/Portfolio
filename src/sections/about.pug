@@ -1,0 +1,28 @@
+section.about
+  .container.about__container
+    .about__slider
+      h2.about__title Что обо мне говорят
+      .about__btns
+        a.direction-btn.direction-btn--prev
+          +icon('arrow-down', 'slider-arrow')
+        a.direction-btn.direction-btn--next
+          +icon('arrow-down', 'slider-arrow')
+      .about__comments
+        -
+          var commentList = [
+            {
+              ava: "content/userfiles/o8CzkPF3Ai8.jpg",
+              author: "Ковальчук Дмитрий",
+              position: "Основатель LoftSchool",
+              text: "Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!"
+            }, {
+              ava: "content/userfiles/Di51WMRvTek.jpg",
+              author: "Владимир Сабанцев",
+              position: "Преподаватель",
+              text: "Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах"
+            }
+          ]
+        each comment in commentList
+          .comment__wrapper
+            +icon('quote', 'comment__quote-icon')
+            +comment(comment)
