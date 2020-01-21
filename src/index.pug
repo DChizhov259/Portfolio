@@ -89,7 +89,7 @@ html(lang='ru')
             .progress__skills-block
               -
                 var items = [
-                  ["Front-end", ["HTML5", "CSS3", "JavaScript", "jQuery и Vue.js"]],
+                  ["Front-end", ["HTML5", "CSS3", "JavaScript", "jquery и Vue.js"]],
                   ["Workflow", ["Git", "Terminal", "Gulp", "Webpack"]]
                 ];
 
@@ -104,8 +104,8 @@ html(lang='ru')
                             li.skills__item
                               .skill
                                 svg.skill__icon(viewBox='0 0 100 100' preserveAspectRatio='none')
-                                  circle.skill__circle.skill__circle--under(cx='50' cy='50' r='40' fill='transparent' stroke='#464341' stroke-width="2px")
-                                  circle.skill__circle.skill__circle--above(cx='50' cy='50' r='40' stroke-dasharray="210" fill='transparent' stroke='url(#gradient)' stroke-width="6px" style="transform-origin: center center;transform: rotate(-180deg);")
+                                  circle.skill__circle.skill__circle--under(cx='50' cy='50' r='40' fill='transparent' stroke='#464341' stroke-width="1.5px")
+                                  circle.skill__circle.skill__circle--above(cx='50' cy='50' r='40' stroke-dasharray="210" fill='transparent' stroke='url(#gradient)' stroke-width="5.5px" style="transform-origin: center center;transform: rotate(-180deg);")
                                   linearGradient(id='gradient' x1='0%' y1='0%' x2='100%' y2='0%')
                                     stop(offset='0%' stop-color='#dc9322')
                                     stop(offset='100%' stop-color='#d47e1d')
@@ -153,85 +153,95 @@ html(lang='ru')
                   .slider__info-btns
                     +icon('link', 'link-icon')
                     a.slider__info-link Посмотреть сайт
-        section.about
-          .container.about__container
-            .about__slider
-              h2.about__title Что обо мне говорят
-              .about__btns
-                a.direction-btn.direction-btn--prev
-                a.direction-btn.direction-btn--next
-              .about__comments
-                -
-                  var commentList = [
-                    {
-                      ava: "content/userfiles/o8CzkPF3Ai8.jpg",
-                      author: "Ковальчук Дмитрий",
-                      position: "Основатель LoftSchool",
-                      text: "Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!"
-                    }, {
-                      ava: "content/userfiles/Di51WMRvTek.jpg",
-                      author: "Владимир Сабанцев",
-                      position: "Преподаватель",
-                      text: "Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах"
-                    }
-                  ]
-                each comment in commentList
-                  +comment(comment)
-        section.contact
-          .container.contact__container
-            h2.contact__title Связаться со мной
-            .contact__form-block
-              form.contact__form(action='')
-                .contact__form-row
-                  label.contact__form-row__block(for='')
-                    .contact__form-row__block-label
-                      | Введите ваше имя
-                    input.contact__form-row__block-input(name='name', type='text')
-                  label.contact__form-row__block(for='')
-                    .contact__form-row__block-label
-                      | Введите ваш email
-                    input.contact__form-row__block-input(name='email', type='email')
-                .contact__form-row
-                  label.contact__form-row__block(for='')
-                    .contact__form-row__block-label
-                      | Сообщение к письму
-                    input.contact__form-row__block-input(name='text', type='text')
-                .contact__form-row__button
-                  button.contact__form__send-btn(name='', type='submit', value='Отправить')
+        .about-contact-section
+          section.about
+            .container.about__container
+              .about__slider
+                h2.about__title Что обо мне говорят
+                .about__btns
+                  a.direction-btn.direction-btn--prev
+                    +icon('arrow-down', 'slider-arrow')
+                  a.direction-btn.direction-btn--next
+                    +icon('arrow-down', 'slider-arrow')
+                .about__comments
+                  -
+                    var commentList = [
+                      {
+                        ava: "content/userfiles/o8CzkPF3Ai8.jpg",
+                        author: "Ковальчук Дмитрий",
+                        position: "Основатель LoftSchool",
+                        text: "Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!"
+                      }, {
+                        ava: "content/userfiles/Di51WMRvTek.jpg",
+                        author: "Владимир Сабанцев",
+                        position: "Преподаватель",
+                        text: "Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах"
+                      }
+                    ]
+                  each comment in commentList
+                    .comment__wrapper
+                      +icon('quote', 'comment__quote-icon')
+                      +comment(comment)
+          section.contact
+            .container.contact__container
+              h2.contact__title Связаться со мной
+              .contact__form-block
+                form.contact__form(action='')
+                  .contact__form-row
+                    label.contact__form-row__block
+                      +icon('user', 'contact__form-icon')
+                      .contact__form-row__block-label
+                        | Введите ваше имя
+                      input.contact__form-row__block-input(name='name', type='text', placeholder='Ковальчук Дмитрий')
+                    label.contact__form-row__block
+                      +icon('envelope', 'contact__form-icon')
+                      .contact__form-row__block-label
+                        | Введите ваш email
+                      input.contact__form-row__block-input(name='email', type='email', placeholder='loftschool@study.com')
+                  .contact__form-row
+                    label.contact__form-row__block.contact__form-row__block--textarea
+                      +icon('message', 'contact__form-icon')
+                      .contact__form-row__block-label
+                        | Сообщение к письму
+                      textarea.contact__form-row__block-input(name="textarea", rows="2", placeholder='Требуется ваша помощь в создании сайта. Интересуют сроки и цена вопроса. Требуется ваша помощь в создании сайта.')
+                  .contact__form-row__button
+                    button.contact__form__send-btn(name='send', type='submit', value='Отправить') Отправить
       footer.footer
         .container.footer__container
-          .footer__left-block
-            .copyright ©2019
-            .footer__title
-              .footer__dev-name
-                | Дмитрий
-                br
-                | Чижов
+          .footer__wrapper
+            .footer__left-block
+              .copyright ©2019
               .footer__title
-                | Личный сайт
-                br
-                | веб разработчика
-          .footer__right-block
-            .footer__menu
-              - var menu = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
-              nav.navigation
-                ul.navigation__menu
-                  each item in menu
-                    li.navigation__item
-                      a.navigation__link #{item}
-            .footer__desc-social-block
-              .footer__desc
-                | Этот сайт я сделал в рамках обучения в Школе онлайн образования
-                | Loftschool
-              .footer__social
-                - var icons = ["insta", "vk", "github"];
-                    ul.socials
-                      each item in icons
-                        li.socials__item
-                          a.socials__link(href='#')
-                            +icon(item, 'socials__icon')
-            .footer__proverb
-              .footer__proverb-text
-                | Всегда пишите код так, будто сопровождать его будет склонный к
-                | насилию психопат, который знает где вы живете
-              .footer__proverb-author Martin Golding
+                .footer__dev-name
+                  | Дмитрий
+                  br
+                  | Чижов
+                .footer__dev-text
+                  | Личный сайт
+                  br
+                  | веб разработчика
+            .footer__right-block
+              .footer__menu
+                - var menu = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
+                nav.navigation
+                  ul.navigation__menu
+                    each item in menu
+                      li.navigation__item
+                        a.navigation__link #{item}
+              .footer__desc-wrapper
+                .footer__desc-social-block
+                  .footer__desc
+                    | Этот сайт я сделал в рамках обучения в Школе онлайн образования
+                    | Loftschool
+                  .footer__social
+                    - var icons = ["insta", "vk", "github"];
+                        ul.socials
+                          each item in icons
+                            li.socials__item
+                              a.socials__link(href='#')
+                                +icon(item, 'socials__icon')
+                .footer__proverb
+                  .footer__proverb-text
+                    | Всегда пишите код так, будто сопровождать его будет склонный к
+                    | насилию психопат, который знает где вы живете
+                  .footer__proverb-author Martin Golding

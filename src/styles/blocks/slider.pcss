@@ -3,7 +3,7 @@
 }
 
 .slider__display {
-  width: 780px;
+  width: 730px;
   height: 440px;
   position: relative;
 }
@@ -62,10 +62,12 @@
   align-items: center;
   width: 42px;
   height: 42px;
-  background-color: #353e4e;
+  background-color: #333c49;
 
   &--prev {
-    transform: rotate(180deg);
+    .slider-arrow {
+      transform: rotate(180deg);
+    }
   }
 
   .slider-arrow {
@@ -86,9 +88,13 @@
   align-items: flex-end;
   margin-bottom: 255px;
   margin-left: -50px;
+  margin-right: -11px;
   width: 375px;
+  font-family: "open-sans-exbo";
   font-size: 320px;
   line-height: 0;
+  opacity: 0.3;
+  z-index: -1;
 }
 
 .slider__info {
@@ -99,10 +105,11 @@
 .slider__info__tags {
   display: flex;
   list-style: none;
-  margin-bottom: 40px;
+  margin-bottom: 35px;
 }
 
 .tags__item {
+  font-family: "open-sans-sebo";
   font-size: 12px;
   margin-right: 7px;
   padding: 10px 15px;
@@ -111,14 +118,19 @@
 }
 
 .slider__info__desc-title {
+  font-family: "open-sans-bo";
   font-size: 24px;
-  line-height: 38.4px;
-  margin-bottom: 40px;
+  line-height: 35.4px;
+  color: #333c49;
+  margin-bottom: 28px;
 }
 
 .slider__info__desc-text {
+  font-family: "open-sans-sebo";
   font-size: 12.8px;
-  margin-bottom: 40px;
+  line-height: 24px;
+  color: #333c49;
+  margin-bottom: 35px;
 }
 
 .slider__info-btns {
@@ -127,11 +139,12 @@
 
 .link-icon {
   fill: #586fd3;
-  width: 15px;
-  height: 15px;
-  margin-right: 10px;
+  width: 13px;
+  height: 13px;
+  margin-right: 12px;
 }
 
 .slider__info-link {
+  font-family: "open-sans-bo";
   font-size: 14.4px;
 }
