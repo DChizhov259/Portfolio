@@ -3,9 +3,10 @@
   "logo-color": "#ffffff",
   "nav_menu-color": "#bab8b5",
   "social_icon-color": "#706c68",
+  "scroll_icon-color": "#ffffff",
+  "ps_star-color": "#db0200",
 
   "links-color": "#4b6fd7",
-  "intro_social_icon-color": "#e6e6e6",
   "progress_bg-color": "#2c2927",
   "orange-color": "#dc9322",
   "works_slider_arrow-color": "#353e4e",
