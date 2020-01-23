@@ -8,12 +8,15 @@ html(lang='ru')
     title Portfolio | main page
   body
     main.main__content
-      .welcome-section
+
+      .bg-wrapper.bg-wrapper_top
         include ./sections/intro
         include ./sections/briefly
       include ./sections/progress
       include ./sections/works
-      .about-contact-section
+
+      .bg-wrapper.bg-wrapper_buttom
         include ./sections/about
         include ./sections/contact
+        
     include ./sections/footer
