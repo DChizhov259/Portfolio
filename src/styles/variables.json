@@ -7,8 +7,11 @@
   "ps_star-color": "#db0200",
   "dark_blue-color": "#333c49",
   "orange-color": "#dc9322",
+  "slider_arrow-color": "#ffffff",
+  "slider_number-color": "#e6e6e6",
+  "tags-color": "#353f4f",
+  "links-color": "#586fd3",
 
-  "links-color": "#4b6fd7",
   "progress_bg-color": "#2c2927",
   "works_slider_arrow-color": "#353e4e",
   "works_tag_bg-color": "#586fd3",

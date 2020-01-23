@@ -6,6 +6,7 @@
   width: 975px;
   height: 550px;
   position: relative;
+  z-index: 1;
 }
 
 .slider__display-pic {
@@ -20,6 +21,7 @@
   display: block;
   top: 390px;
   right: 0;
+  z-index: 2;
 }
 
 .slider-mini__item {
@@ -78,14 +80,15 @@
   }
 
   .slider-arrow {
-    width: 10px;
+    width: 6px;
     height: 10px;
-    fill: #727883;
+    fill: $slider_arrow-color;
+    fill-opacity: 0.3;
   }
 
   &:hover {
     .slider-arrow {
-      fill: #ffffff;
+      fill-opacity: 1;
     }
   }
 }
@@ -93,15 +96,15 @@
 .slider__number {
   display: flex;
   align-items: flex-end;
-  margin-bottom: 255px;
+  margin-bottom: 315px;
   margin-left: -50px;
-  margin-right: -11px;
-  width: 375px;
+  margin-right: -13px;
+  /* width: 400px; */
   font-family: "open-sans-exbo";
-  font-size: 320px;
+  font-size: 400px;
   line-height: 0;
-  opacity: 0.3;
-  z-index: -1;
+  color: $slider_number-color;
+  z-index: 0;
 }
 
 .slider__info {
@@ -110,48 +113,54 @@
 }
 
 .slider__info__tags {
+  margin-bottom: 50px;
+}
+
+.tags {
   display: flex;
   list-style: none;
-  margin-bottom: 35px;
 }
 
 .tags__item {
   font-family: "open-sans-sebo";
-  font-size: 12px;
-  margin-right: 7px;
-  padding: 10px 15px;
+  font-size: 15px;
+  margin-right: 10px;
+  padding: 15px 20px;
   border-radius: 35px;
-  background-color: #f3f5f9;
+  color: $dark_blue-color;
+  opacity: 0.7;
+  background-color: rgba($tags-color, 0.1);
 }
 
 .slider__info__desc-title {
   font-family: "open-sans-bo";
-  font-size: 24px;
-  line-height: 35.4px;
-  color: #333c49;
-  margin-bottom: 28px;
+  font-size: 30px;
+  line-height: 48px;
+  color: $dark_blue-color;
+  margin-bottom: 40px;
 }
 
 .slider__info__desc-text {
   font-family: "open-sans-sebo";
-  font-size: 12.8px;
-  line-height: 24px;
-  color: #333c49;
-  margin-bottom: 35px;
+  font-size: 16px;
+  line-height: 30px;
+  color: $dark_blue-color;
+  opacity: 0.7;
+  margin-bottom: 50px;
 }
 
 .slider__info-btns {
-  color: #586fd3;
+  color: $links-color;
 }
 
 .link-icon {
-  fill: #586fd3;
-  width: 13px;
-  height: 13px;
-  margin-right: 12px;
+  fill: $links-color;
+  width: 15px;
+  height: 15px;
+  margin-right: 20px;
 }
 
 .slider__info-link {
   font-family: "open-sans-bo";
-  font-size: 14.4px;
+  font-size: 18px;
 }
