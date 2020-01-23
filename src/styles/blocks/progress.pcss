@@ -1,12 +1,11 @@
 .progress {
-  /* height: 100vh; */
   background-image: url("../images/content/Фон.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
   display: flex;
   align-items: center;
-  z-index: -10;
+  z-index: 0;
 
   &::before {
     content: "";
@@ -16,43 +15,42 @@
     width: 100%;
     background-image: url("../images/content/Руки.png");
     background-repeat: no-repeat;
-    background-position: top 45% left;
+    background-position: top 49% left;
     transform: translate(0, 10%);
-    z-index: -1;
+    z-index: 1;
   }
 }
 
 .progress__container {
-  padding: 15vh 12.1% 15vh 34.4%;
+  padding: 14vh 6% 14vh 28%;
+  z-index: 2;
 }
 
 .progress__desc-block {
-  width: 480px;
-  margin-bottom: 60px;
+  max-width: 600px;
+  margin-bottom: 90px;
 }
 
 .progress__title {
   font-family: "open-sans-bo";
-  font-size: 24px;
-  color: #ffffff;
-  margin-bottom: 30px;
+  font-size: 30px;
+  margin-bottom: 55px;
 }
 
 .progress__desc-text {
   font-family: "open-sans-sebo";
-  font-size: 12.8px;
-  line-height: 27px;
-  color: #ffffff;
+  font-size: 16px;
+  line-height: 30px;
   opacity: 0.5;
 }
 
 .progress__skills-block {
-  width: 630px;
+  max-width: 750px;
   margin-left: auto;
 }
 
 .skills-direct__item {
-  margin-bottom: 15px;
+  margin-bottom: 50px;
 
   &:last-child {
     margin-bottom: 0;
@@ -61,10 +59,8 @@
 
 .skills-row__title {
   font-family: "open-sans-bo";
-  font-size: 19.2px;
-  line-height: 38.4px;
-  color: #ffffff;
-  margin-bottom: 12px;
+  font-size: 24px;
+  margin-bottom: 40px;
 }
 
 .skills {
