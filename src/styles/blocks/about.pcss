@@ -4,7 +4,7 @@
   background-size: cover;
   background-repeat: no-repeat;
 
-  &::before {
+  /* &::before {
     content: "";
     display: block;
     position: absolute;
@@ -19,78 +19,94 @@
       top 22% right 11%;
     transform: translate(0, -3%);
     z-index: 0.1;
-  }
+  } */
 }
 
-.about {
+/* .reviews {
   max-width: 1440px;
   margin: 0 auto;
-}
+} */
 
-.about__container {
+.reviews__container {
   padding: 14vh 37.8% 0 6.5%;
 }
 
-.about__slider {
+.reviews__slider {
   display: inline-flex;
   flex-wrap: wrap;
 }
 
-.about__title {
-  margin-bottom: 11%;
-  margin-right: 98px;
+.reviews__title {
+  margin-bottom: 10%;
+  margin-right: 120px;
   font-family: "open-sans-bo";
-  font-size: 28.8px;
-  color: #ffffff;
+  font-size: 36px;
 }
 
-.about__btns {
+.reviews__btns {
   display: flex;
   justify-content: space-between;
-  width: 109px;
+  width: 133px;
 
-  .direction-btn {
+  .reviews-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
     background-color: transparent;
-    border: 1px solid #efefee;
+    border: 1px solid $reviews_arrow-color;
     border-radius: 50%;
 
+    &--prev {
+      .slider-arrow {
+        transform: rotate(180deg);
+      }
+    }
+
     .slider-arrow {
-      width: 5.6px;
-      height: 8px;
-      fill: #efefee;
+      width: 6px;
+      height: 10px;
+      fill: $reviews_arrow-color;
+    }
+
+    &:hover {
+      background-color: rgba($reviews_arrow-color, 0.1);
+      border-width: 3px;
+      opacity: 0.7;
     }
   }
 }
 
-.about__comments {
+.reviews__comments {
   display: flex;
   justify-content: space-between;
-  width: 730px;
 }
 
 .comment__wrapper {
   display: flex;
+  margin-right: 80px;
 }
 
 .comment {
-  width: 264.9px;
-  height: 176px;
+  width: 325px;
+  height: 105px;
 }
 
 .comment__quote-icon {
-  width: 61px;
-  height: 52px;
-  fill: #ffffff;
+  width: 75px;
+  height: 65px;
+  fill: $quote-color;
   opacity: 0.05;
-  margin-right: 18px;
+  margin-right: 22px;
 }
 
 .comment__text {
-  height: 80px;
   font-family: "open-sans-sebo";
-  font-size: 13.5px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 30px;
   margin-bottom: 30px;
+  opacity: 0.5;
 }
 
 .comment__author {
@@ -101,18 +117,16 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  margin-left: 20px;
+  margin-left: 30px;
 }
 
 .comment__author-name {
   font-family: "open-sans-bo";
-  font-size: 14.4px;
-  font-weight: bold;
-  color: #ffffff;
+  font-size: 18px;
 }
 
 .comment__author-pos {
   font-family: "open-sans-sebo";
-  font-size: 12.8px;
-  opacity: 0.7;
+  font-size: 16px;
+  opacity: 0.3;
 }

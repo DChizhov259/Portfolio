@@ -11,6 +11,8 @@
   "slider_number-color": "#e6e6e6",
   "tags-color": "#353f4f",
   "links-color": "#586fd3",
+  "reviews_arrow-color": "#ffffff",
+  "quote-color": "#ffffff",
 
   "bp-desktop-hd": "1800px",
   "bp-desktop": "1200px",
