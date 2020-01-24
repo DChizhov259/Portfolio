@@ -1,118 +1,47 @@
-.about-contact-section {
-  background-image: url("../images/content/i9GY3R67X.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-
-  &::before {
-    content: "";
-    display: block;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-image: url("../images/content/4.png"),
-      url("../images/content/3.png"), url("../images/content/2.png"),
-      url("../images/content/1.png");
-    background-size: 23%, 9%, 7%, 25%;
-    background-repeat: no-repeat;
-    background-position: top right -2%, top 12% right 21%, top 16% right 11%,
-      top 22% right 11%;
-    transform: translate(0, -3%);
-    z-index: 0.1;
-  }
-}
-
 .about {
-  max-width: 1440px;
-  margin: 0 auto;
+  padding: 5% 22% 15%;
 }
 
 .about__container {
-  padding: 14vh 37.8% 0 6.5%;
-}
-
-.about__slider {
-  display: inline-flex;
-  flex-wrap: wrap;
-}
-
-.about__title {
-  margin-bottom: 11%;
-  margin-right: 98px;
-  font-family: "open-sans-bo";
-  font-size: 28.8px;
-  color: #ffffff;
-}
-
-.about__btns {
   display: flex;
   justify-content: space-between;
-  width: 109px;
+}
 
-  .direction-btn {
-    background-color: transparent;
-    border: 1px solid #efefee;
-    border-radius: 50%;
+.about__data {
+  width: 30%;
+}
 
-    .slider-arrow {
-      width: 5.6px;
-      height: 8px;
-      fill: #efefee;
-    }
+.about__desc {
+  width: 530px;
+  font-family: "open-sans-sebo";
+  font-size: 16px;
+  line-height: 30px;
+  p {
+    opacity: 0.5;
   }
 }
 
-.about__comments {
-  display: flex;
-  justify-content: space-between;
-  width: 730px;
+.about__greeting {
+  margin-bottom: 100px;
 }
 
-.comment__wrapper {
-  display: flex;
-}
-
-.comment {
-  width: 264.9px;
-  height: 176px;
-}
-
-.comment__quote-icon {
-  width: 61px;
-  height: 52px;
-  fill: #ffffff;
-  opacity: 0.05;
-  margin-right: 18px;
-}
-
-.comment__text {
-  height: 80px;
-  font-family: "open-sans-sebo";
-  font-size: 13.5px;
-  line-height: 24px;
-  margin-bottom: 30px;
-}
-
-.comment__author {
-  display: flex;
-}
-
-.comment__author-desc {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  margin-left: 20px;
-}
-
-.comment__author-name {
+.about__username {
   font-family: "open-sans-bo";
-  font-size: 14.4px;
-  font-weight: bold;
-  color: #ffffff;
+  margin: 30px 0;
+  font-size: 36px;
+  opacity: 1;
 }
 
-.comment__author-pos {
-  font-family: "open-sans-sebo";
-  font-size: 12.8px;
-  opacity: 0.7;
+.about__postscript {
+  font-family: "open-sans-it";
+  opacity: 0.5;
+  &::before {
+    content: "*";
+    display: block;
+    position: absolute;
+    color: $ps_star-color;
+    font-size: 48px;
+    transform: rotate(15deg) translate(-50px, 20px);
+    opacity: 0.2;
+  }
 }

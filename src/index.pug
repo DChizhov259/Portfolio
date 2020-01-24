@@ -7,14 +7,16 @@ html(lang='ru')
     meta(http-equiv='X-UA-Compatible', content='ie=edge')
     title Portfolio | main page
   body
-    .wrapper
-      main.main__content
-        .welcome-section
-          include ./sections/intro
-          include ./sections/briefly
-        include ./sections/progress
-        include ./sections/works
-        .about-contact-section
-          include ./sections/about
-          include ./sections/contact
-      include ./sections/footer
+    main.main__content
+
+      .bg-wrapper.bg-wrapper_top
+        include ./sections/wellcome
+        include ./sections/about
+      include ./sections/progress
+      include ./sections/works
+
+      .bg-wrapper.bg-wrapper_buttom
+        include ./sections/reviews
+        include ./sections/contact
+        
+    include ./sections/footer
