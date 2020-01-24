@@ -13,6 +13,8 @@
   "links-color": "#586fd3",
   "reviews_arrow-color": "#ffffff",
   "quote-color": "#ffffff",
+  "form_border-color": "#ffffff",
+  "form_icon-color": "#ffffff",
 
   "bp-desktop-hd": "1800px",
   "bp-desktop": "1200px",
