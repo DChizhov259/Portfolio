@@ -1,36 +1,30 @@
-section.reviews
-  .container.reviews__container
-    .reviews__slider
-      h2.reviews__title Что обо мне говорят
-      .reviews__btns
-        a.reviews-btn.reviews-btn--prev
-          +icon('arrow-down', 'slider-arrow')
-        a.reviews-btn.reviews-btn--next
-          +icon('arrow-down', 'slider-arrow')
-      .reviews__comments
-        -
-          var commentList = [
-            {
-              ava: "content/userfiles/o8CzkPF3Ai8.jpg",
-              author: "Ковальчук Дмитрий",
-              position: "Основатель LoftSchool",
-              text: "Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!"
-            }, {
-              ava: "content/userfiles/Di51WMRvTek.jpg",
-              author: "Владимир Сабанцев",
-              position: "Преподаватель",
-              text: "Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах"
-            }
-          ]
-        each comment in commentList
-          .comment__wrapper
-            +icon('quote', 'comment__quote-icon')
-            .comment
-              article.comment__text=comment.text
-              .comment__author
-                .comment__author-avatar
-                  .avatar
-                    +image(comment.ava, 'user-pic', 'avatar-image')
-                .comment__author-desc
-                  .comment__author-name=comment.author
-                  .comment__author-pos=comment.position
+section.about
+  .container.about__container
+    .about__data
+      .user
+        .user__avatar
+          .avatar
+            +image('content/userfiles/user.jpg', 'user-pic', 'avatar-image')
+        .user__info
+          -
+            var rows = [
+              ["Проживаю:", "Краснотурьинск"],
+              ["Возраст:", "29 лет"],
+              ["Родился:", "9 октября 1990"]
+            ];
+
+          table.user__data
+            table.user__data-table
+              each row in rows
+                tr.user__data-row
+                  each cell in row
+                    td.user__data-cell #{cell}
+    .about__desc
+      .about__greeting
+        p Привет, меня зовут
+        .about__username Дмитрий Чижов
+        p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+      .about__postscript
+        | Этот сайт я сделал в рамках обучения в Школе онлайн образования
+        | LoftSchool. Чуть позже я освежу в нём свой контент. А пока
+        | посмотрите, как тут всё классно и красиво!
