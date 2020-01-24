@@ -15,6 +15,7 @@
   "quote-color": "#ffffff",
   "form_border-color": "#ffffff",
   "form_icon-color": "#ffffff",
+  "footer_bg-color": "#222427",
 
   "bp-desktop-hd": "1800px",
   "bp-desktop": "1200px",

@@ -1,98 +1,89 @@
 .footer {
   overflow: hidden;
-  background-color: #222427;
-  height: auto;
+  background-color: $footer_bg-color;
 }
 
 .footer__container {
-  padding: 8vh 8.7% 8vh 6.5%;
-  display: block;
-}
-
-.footer__wrapper {
+  padding: 4.3% 3% 4.5% 0.5%;
   display: flex;
-}
-
-.footer__left-block {
-  display: flex;
-  margin-right: 9.5%;
 }
 
 .copyright {
   font-family: "open-sans-sebo";
-  font-size: 38.4px;
+  font-size: 48px;
   line-height: 30px;
-  margin-right: 48px;
-  opacity: 0.2;
+  margin-right: 60px;
+  white-space: nowrap;
+  opacity: 0.1;
 }
 
 .footer__title {
-  width: 120px;
+  margin-right: 140px;
 }
 
 .footer__dev-name {
-  margin-bottom: 16px;
+  margin-bottom: 30px;
   font-family: "open-sans-bo";
-  font-size: 14.4px;
-  line-height: 24px;
-  color: #ffffff;
+  font-size: 18px;
+  line-height: 30px;
   text-transform: uppercase;
 }
 
 .footer__dev-text {
+  width: 145px;
   font-family: "open-sans-regular";
-  font-size: 12.8px;
-  line-height: 24px;
-  opacity: 0.3;
+  font-size: 16px;
+  line-height: 30px;
+  opacity: 0.15;
 }
 
-.footer__right-block {
+.footer__main-block {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .footer__menu {
-  flex-basis: 100%;
-  margin-bottom: 50px;
+  /* flex-basis: 100%; */
+  margin-bottom: 70px;
 }
 
 .footer__desc-wrapper {
   display: flex;
-  text-align: justify;
+  justify-content: space-between;
 }
 
 .footer__desc-social-block {
-  flex: 6;
   display: flex;
   flex-direction: column;
-  width: auto;
-  padding-right: 20%;
+  /* margin-right: 195px; */
 }
 
 .footer__desc {
+  width: 315px;
   font-family: "open-sans-regular";
-  font-size: 12.8px;
-  line-height: 24px;
-  margin-bottom: 20px;
-  opacity: 0.7;
+  font-size: 16px;
+  line-height: 30px;
+  margin-bottom: 30px;
+  opacity: 0.3;
 }
 
 .footer__social {
   .socials {
     .socials__item {
-      margin-right: 13px;
+      margin-right: 20px;
       .socials__link {
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 41.5px;
-        width: 41.5px;
-        border: 1px solid #656668;
+        height: 50px;
+        width: 50px;
+        border: 1px solid $social_icon-color;
         border-radius: 50%;
 
         .socials__icon {
-          height: 18px;
-          width: 18px;
+          height: 20px;
+          width: 20px;
         }
       }
     }
@@ -100,20 +91,19 @@
 }
 
 .footer__proverb {
-  flex: 8;
   display: flex;
   flex-direction: column;
-  font-size: 12.8px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 30px;
 }
 
 .footer__proverb-text {
+  width: 425px;
   margin-bottom: 20px;
   font-family: "open-sans-regular";
-  opacity: 0.7;
+  opacity: 0.3;
 }
 
 .footer__proverb-author {
-  color: #ffffff;
   font-family: "open-sans-it";
 }
