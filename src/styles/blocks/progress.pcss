@@ -18,18 +18,31 @@
     background-position: top 49% left;
     transform: translate(0, 10%);
     z-index: 1;
+
+    @include desktop {
+      transform: scale(0.7) translate(-30%, 24%);
+      background-position: top 49% left;
+    }
   }
 }
 
 .progress__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 14vh 0;
-  margin: 0 14.5% 0 37.2%;
   z-index: 2;
 }
 
 .progress__desc-block {
   max-width: 600px;
   margin-bottom: 90px;
+  margin-left: auto;
+  margin-right: 26%;
+
+  @include desktop {
+    margin-right: 23%;
+  }
 }
 
 .progress__title {
@@ -46,8 +59,13 @@
 }
 
 .progress__skills-block {
-  max-width: 750px;
+  min-width: 53%;
   margin-left: auto;
+  margin-right: 4%;
+
+  @include desktop {
+    margin-right: 1%;
+  }
 }
 
 .skills-direct__item {
