@@ -5,6 +5,10 @@
 
 .contact__container {
   padding: 11% 0 9.3% 0.5%;
+
+  @include desktop {
+    padding: 16% 0 9.3% 2.5%;
+  }
 }
 
 .contact__title {
@@ -33,12 +37,20 @@
 
   &--textarea {
     width: 100%;
-    line-height: 36px;
     margin-bottom: 0;
 
-    .contact__form-icon {
-      transform: translateY(60px);
+    .contact__form-row__block-input {
+      line-height: 36px;
+      padding-bottom: 10px;
     }
+
+    .contact__form-icon {
+      transform: translateY(37px);
+    }
+  }
+
+  @include desktop {
+    margin-bottom: 33px;
   }
 }
 
@@ -86,6 +98,11 @@
 
 .contact__form-row__button {
   margin-top: 50px;
+
+  @include desktop {
+    margin-top: 25px;
+    margin-bottom: 6%;
+  }
 }
 
 .contact__form__send-btn {
