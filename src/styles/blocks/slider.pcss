@@ -1,5 +1,11 @@
 .slider {
   display: flex;
+
+  @include tablets {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 .slider__display {
@@ -147,6 +153,7 @@
 
 .tags {
   display: flex;
+  justify-content: center;
   list-style: none;
 }
 

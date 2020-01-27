@@ -72,6 +72,10 @@
 .footer__desc-wrapper {
   display: flex;
   justify-content: space-between;
+
+  @include tablets {
+    flex-wrap: wrap;
+  }
 }
 
 .footer__desc-social-block {
