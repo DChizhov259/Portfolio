@@ -25,12 +25,7 @@ footer.footer
             | Этот сайт я сделал в рамках обучения в Школе онлайн образования
             | Loftschool
           .footer__social
-            - var icons = ["insta", "vk", "github"];
-                ul.socials
-                  each item in icons
-                    li.socials__item
-                      a.socials__link(href='#')
-                        +icon(item, 'socials__icon')
+            include ./socials
         .footer__proverb
           .footer__proverb-text
             | Всегда пишите код так, будто сопровождать его будет склонный к
