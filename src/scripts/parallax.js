@@ -1,6 +1,7 @@
 const parallax = document.querySelector(".parallax");
 const layers = parallax.children;
 
+// if (document.documentElement.clientWidth > 1800) {
 function moveLayaersDependsOnScroll(wScroll) {
   Array.from(layers).forEach(layer => {
     const divider = layer.dataset.speed;
@@ -14,3 +15,4 @@ window.addEventListener("scroll", e => {
   const wScroll = window.pageYOffset;
   moveLayaersDependsOnScroll(wScroll);
 });
+// }
