@@ -15,6 +15,7 @@
   left: 0;
   width: 100%;
   height: 100%;
+  will-change: trandform;
 
   &:nth-child(1) {
     .parallax-top__image {
@@ -40,6 +41,7 @@
   &:nth-child(4) {
     .parallax-top__image {
       left: 0;
+      /* bottom: 0; */
       top: 970px;
     }
   }
@@ -47,16 +49,24 @@
   &:nth-child(5) {
     .parallax-top__image {
       left: 0;
-      bottom: 0;
-      height: 50%;
+      bottom: -30px;
+      height: 80%;
     }
   }
 
   &:nth-child(6) {
     .parallax-top__image {
       left: 0;
-      bottom: 0;
-      height: 110%;
+      bottom: -30px;
+      height: 70%;
+    }
+  }
+
+  &:nth-child(7) {
+    .parallax-top__image {
+      left: 0;
+      bottom: -350px;
+      height: 35%;
     }
   }
 }
