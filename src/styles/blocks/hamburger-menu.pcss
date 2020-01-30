@@ -9,6 +9,7 @@
     justify-content: center;
     width: 30px;
     height: 30px;
+    padding: 0;
     cursor: pointer;
     transition: 0.4s;
     z-index: 100;
@@ -71,45 +72,42 @@
     font-family: "open-sans-sebo";
     font-size: 18px;
     line-height: 48px;
+    color: $hamburger_menu-color;
   }
 
   &__link {
     text-decoration: none;
   }
 
-  &__checkbox {
-    display: none;
+  &--active {
+    .hamburger-menu {
+      &__container {
+        width: 42vw;
+        transition-delay: 0s;
+      }
 
-    &:checked ~ {
-      .hamburger-menu {
-        &__container {
-          width: 42vw;
-          transition-delay: 0s;
-        }
+      &__btn {
+        .hamburger-menu__icon {
+          background: transparent;
+          z-index: 99;
+          height: 23px;
+          width: 23px;
 
-        &__btn {
-          .hamburger-menu__icon {
-            background: transparent;
-            z-index: 99;
-            height: 23px;
-            width: 23px;
+          &::before,
+          &::after {
+            top: 0;
+            height: 5px;
+            background-color: $hamburger_menu-color;
+          }
 
-            &::before,
-            &::after {
-              top: 0;
-              height: 5px;
-              background-color: $hamburger_menu-color;
-            }
+          &::after {
+            transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+          }
 
-            &::after {
-              transform: rotate(-45deg);
-              -webkit-transform: rotate(-45deg);
-            }
-
-            &::before {
-              transform: rotate(45deg);
-              -webkit-transform: rotate(45deg);
-            }
+          &::before {
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
           }
         }
       }
@@ -128,4 +126,8 @@
   @include tablets {
     display: none;
   }
+}
+
+body.overflow-hidden {
+  overflow-y: hidden;
 }
