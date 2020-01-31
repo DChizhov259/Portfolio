@@ -6,25 +6,30 @@ const btns = {
 };
 
 const comments = {
-  template: "#reviews-comments"
+  template: "#reviews-comments",
+  props: ["reviews", "flickityOptions"],
+  components: {
+    Flickity
+  }
 };
 
 new Vue({
   el: "#reviews-component",
   template: "#reviews-container",
   components: {
-    Flickity,
     btns,
     comments
   },
 
   data() {
     return {
+      reviews: [],
       flickityOptions: {
-        initialIndex: 2,
-        prevNextButtons: true,
+        initialIndex: 3,
+        prevNextButtons: false,
         pageDots: false,
-        wrapAround: true
+        wrapAround: true,
+        groupCells: 2
 
         // any options from Flickity can be used
       }
@@ -32,6 +37,14 @@ new Vue({
   },
 
   methods: {
+    makeArrWithRequiredImages(data) {
+      return data.map(item => {
+        const requirePic = require(`../images/content/userfiles/${item.author_pic}`);
+        item.author_pic = requirePic;
+        return item;
+      });
+    },
+
     next() {
       this.$refs.flickity.next();
     },
@@ -39,5 +52,10 @@ new Vue({
     previous() {
       this.$refs.flickity.previous();
     }
+  },
+
+  created() {
+    const data = require("../data/reviews.json");
+    this.reviews = this.makeArrWithRequiredImages(data);
   }
 });
