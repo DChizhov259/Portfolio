@@ -1,0 +1,30 @@
+script(type="text/x-template")#reviews-container
+  .reviews__slider
+    h2.reviews__title Что обо мне говорят
+    btns()
+    comments(
+      :reviews="reviews",
+      :flickityOptions="flickityOptions"
+    )
+
+script(type="text/x-template")#reviews-btns
+  .reviews__btns
+    button(@click="previous()").reviews-btn.reviews-btn--prev
+      +icon('arrow-down', 'slider-arrow')
+    button(@click="next()").reviews-btn.reviews-btn--next
+      +icon('arrow-down', 'slider-arrow')
+
+script(type="text/x-template")#reviews-comments
+  .reviews__comments
+    flickity(ref="flickity", :options="flickityOptions")
+      .comment__wrapper(v-for="comment in reviews")
+        +icon('quote', 'comment__quote-icon')
+        .comment
+          article.comment__text {{comment.text}}
+          .comment__author
+            .comment__author-avatar
+              .avatar
+                img(:src="comment.author_pic" alt="user-pic" class="avatar-image")
+            .comment__author-desc
+              .comment__author-name {{comment.author_name}}
+              .comment__author-pos {{comment.author_occ}}

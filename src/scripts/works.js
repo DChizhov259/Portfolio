@@ -16,11 +16,6 @@ const display = {
     btns
   },
   props: ["works", "currentWork"]
-  // computed: {
-  //   reverseWorks() {
-  //     return [...this.works].reverse(); //создана копия массива works
-  //   }
-  // }
 };
 
 const tags = {
