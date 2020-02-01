@@ -14,7 +14,7 @@ script(type="text/x-template")#reviews-btns
       +icon('arrow-down', 'slider-arrow')
 
 script(type="text/x-template")#reviews-comments
-  swiper(:options="swiperOption", ref="mySwiper", @someSwiperEvent="callback").reviews__comments
+  swiper(:options="swiperOption", ref="awesomeSwiper", @set-translate="onSetTranslate").reviews__comments
     swiper-slide.comment__wrapper(v-for="comment in reviews")
       +icon('quote', 'comment__quote-icon')
       .comment
