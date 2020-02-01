@@ -1,5 +1,9 @@
 import Vue from "vue";
-import Flickity from "vue-flickity";
+import VueAwesomeSwiper from "vue-awesome-swiper";
+
+import "swiper/dist/css/swiper.css";
+
+Vue.use(VueAwesomeSwiper /* { default global options } */);
 
 const btns = {
   template: "#reviews-btns"
@@ -7,33 +11,35 @@ const btns = {
 
 const comments = {
   template: "#reviews-comments",
-  props: ["reviews", "flickityOptions"],
-  components: {
-    Flickity
-  }
+  props: ["reviews", "swiperOption"]
 };
 
 new Vue({
   el: "#reviews-component",
   template: "#reviews-container",
   components: {
+    LocalSwiper: VueAwesomeSwiper.swiper,
+    LocalSlide: VueAwesomeSwiper.swiperSlide,
     btns,
     comments
   },
 
   data() {
     return {
-      reviews: [],
-      flickityOptions: {
-        initialIndex: 3,
-        prevNextButtons: false,
-        pageDots: false,
-        wrapAround: true,
-        groupCells: 2
-
-        // any options from Flickity can be used
-      }
+      swiperOption: {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        }
+      },
+      reviews: []
     };
+  },
+
+  computed: {
+    swiper() {
+      return this.$refs.awesomeSwiperA.swiper;
+    }
   },
 
   methods: {
@@ -45,13 +51,13 @@ new Vue({
       });
     },
 
-    next() {
-      this.$refs.flickity.next();
-    },
-
-    previous() {
-      this.$refs.flickity.previous();
+    onSetTranslate() {
+      console.log("onSetTranslate");
     }
+  },
+
+  mounted() {
+    console.log("this is swiper instance object", this.swiper);
   },
 
   created() {
@@ -59,3 +65,24 @@ new Vue({
     this.reviews = this.makeArrWithRequiredImages(data);
   }
 });
+
+// export default {
+//   name: "carrousel",
+//   data() {
+//     return {
+//       swiperOption: {
+//         // some swiper options/callbacks
+//       }
+//     };
+//   },
+//   computed: {
+//     swiper() {
+//       return this.$refs.mySwiper.swiper;
+//     }
+//   },
+//   mounted() {
+//     // current swiper instance
+//     console.log("this is current swiper instance object", this.swiper);
+//     this.swiper.slideTo(3, 1000, false);
+//   }
+// };
