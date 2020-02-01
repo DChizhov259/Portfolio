@@ -38,7 +38,7 @@ new Vue({
 
   computed: {
     swiper() {
-      return this.$refs.awesomeSwiperA.swiper;
+      return this.$refs.awesomeSwiper.swiper;
     }
   },
 
