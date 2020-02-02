@@ -8,14 +8,14 @@ script(type="text/x-template")#reviews-container
 
 script(type="text/x-template")#reviews-btns
   .reviews__btns
-    button(slot="button-prev").reviews-btn.reviews-btn--prev.swiper-button-prev
+    button(slot="button-prev").reviews-btn.reviews-btn--prev
       +icon('arrow-down', 'slider-arrow')
-    button(slot="button-next").reviews-btn.reviews-btn--next.swiper-button-next
+    button(slot="button-next").reviews-btn.reviews-btn--next
       +icon('arrow-down', 'slider-arrow')
 
 script(type="text/x-template")#reviews-comments
-  swiper(:options="swiperOption", ref="awesomeSwiper", @set-translate="onSetTranslate").reviews__comments
-    swiper-slide.comment__wrapper(v-for="comment in reviews")
+  swiper(:options="swiperOption" ref="mySwiper").reviews__comments
+    swiper-slide.comment__wrapper(v-for="comment in reviews" :key="comment.id")
       +icon('quote', 'comment__quote-icon')
       .comment
         article.comment__text {{comment.text}}

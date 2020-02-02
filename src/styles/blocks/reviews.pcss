@@ -12,8 +12,10 @@
 }
 
 .reviews__slider {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
+  /* margin-right: 37%; */
+  max-width: 926px;
 }
 
 .reviews__title {
@@ -37,6 +39,12 @@
     background-color: transparent;
     border: 1px solid $reviews_arrow-color;
     border-radius: 50%;
+
+    &--disabled {
+      pointer-events: none;
+      transform: rotate(90deg);
+      transition: 0.3s;
+    }
 
     &--prev {
       .slider-arrow {
@@ -65,11 +73,11 @@
 
 .comment__wrapper {
   display: flex;
-  margin-right: 80px;
+  /* margin-right: 80px; */
 
-  @include desktop {
+  /* @include desktop {
     margin-right: 20px;
-  }
+  } */
 }
 
 .comment {
