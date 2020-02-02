@@ -1,9 +1,38 @@
 import Vue from "vue";
-import VueAwesomeSwiper from "vue-awesome-swiper";
-
 import "swiper/dist/css/swiper.css";
 
-Vue.use(VueAwesomeSwiper /* { default global options } */);
+import { swiper, swiperSlide } from "vue-awesome-swiper";
+
+// export default {
+//   components: {
+//     swiper,
+//     swiperSlide
+//   },
+
+//   name: "carrousel",
+//   data() {
+//     return {
+//       swiperOption: {
+//         // some swiper options/callbacks
+//         slidesPerView: 2
+//       }
+//     };
+//   },
+//   computed: {
+//     swiper() {
+//       return this.$refs.mySwiper.swiper;
+//     }
+//   },
+//   mounted() {
+//     // current swiper instance
+//     console.log("this is current swiper instance object", this.swiper);
+//     this.swiper.slideTo(3, 1000, false);
+//   }
+// };
+// require("swiper/dist/css/swiper.css");
+// import VueAwesomeSwiper from "vue-awesome-swiper";
+
+// Vue.use(VueAwesomeSwiper);
 
 const btns = {
   template: "#reviews-btns"
@@ -11,35 +40,51 @@ const btns = {
 
 const comments = {
   template: "#reviews-comments",
-  props: ["reviews", "swiperOption"]
+  components: {
+    swiper,
+    swiperSlide
+  },
+  props: ["reviews"],
+
+  data() {
+    return {
+      swiperOption: {
+        autoplay: true,
+        slidesPerView: 2,
+        spaceBetween: 1,
+        navigation: {
+          nextEl: ".reviews-btn--next",
+          prevEl: ".reviews-btn--prev",
+          disabledClass: "reviews-btn--disabled"
+        }
+      }
+    };
+  },
+
+  computed: {
+    swiper() {
+      return this.$refs.mySwiper.swiper;
+    }
+  },
+  mounted() {
+    // current swiper instance
+    console.log("this is current swiper instance object", this.swiper);
+    this.swiper.slideTo(2, 1000, false);
+  }
 };
 
 new Vue({
   el: "#reviews-component",
   template: "#reviews-container",
   components: {
-    LocalSwiper: VueAwesomeSwiper.swiper,
-    LocalSlide: VueAwesomeSwiper.swiperSlide,
     btns,
     comments
   },
 
   data() {
     return {
-      swiperOption: {
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev"
-        }
-      },
       reviews: []
     };
-  },
-
-  computed: {
-    swiper() {
-      return this.$refs.awesomeSwiper.swiper;
-    }
   },
 
   methods: {
@@ -49,15 +94,7 @@ new Vue({
         item.author_pic = requirePic;
         return item;
       });
-    },
-
-    onSetTranslate() {
-      console.log("onSetTranslate");
     }
-  },
-
-  mounted() {
-    console.log("this is swiper instance object", this.swiper);
   },
 
   created() {
