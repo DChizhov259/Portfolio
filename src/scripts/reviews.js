@@ -3,37 +3,6 @@ import "swiper/dist/css/swiper.css";
 
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 
-// export default {
-//   components: {
-//     swiper,
-//     swiperSlide
-//   },
-
-//   name: "carrousel",
-//   data() {
-//     return {
-//       swiperOption: {
-//         // some swiper options/callbacks
-//         slidesPerView: 2
-//       }
-//     };
-//   },
-//   computed: {
-//     swiper() {
-//       return this.$refs.mySwiper.swiper;
-//     }
-//   },
-//   mounted() {
-//     // current swiper instance
-//     console.log("this is current swiper instance object", this.swiper);
-//     this.swiper.slideTo(3, 1000, false);
-//   }
-// };
-// require("swiper/dist/css/swiper.css");
-// import VueAwesomeSwiper from "vue-awesome-swiper";
-
-// Vue.use(VueAwesomeSwiper);
-
 const btns = {
   template: "#reviews-btns"
 };
@@ -102,24 +71,3 @@ new Vue({
     this.reviews = this.makeArrWithRequiredImages(data);
   }
 });
-
-// export default {
-//   name: "carrousel",
-//   data() {
-//     return {
-//       swiperOption: {
-//         // some swiper options/callbacks
-//       }
-//     };
-//   },
-//   computed: {
-//     swiper() {
-//       return this.$refs.mySwiper.swiper;
-//     }
-//   },
-//   mounted() {
-//     // current swiper instance
-//     console.log("this is current swiper instance object", this.swiper);
-//     this.swiper.slideTo(3, 1000, false);
-//   }
-// };

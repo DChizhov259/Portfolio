@@ -1,10 +1,22 @@
 .about {
-  padding: 5% 0 15%;
+  @include tablets {
+    background-image: url("../images/content/background/768about.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  @include phones {
+    background-image: url("../images/content/background/320about.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 }
 
 .about__container {
   display: flex;
   justify-content: center;
+  padding: 5% 0 15%;
 
   @include desktop {
     margin-right: 5%;
