@@ -34,7 +34,7 @@ script(type="text/x-template")#slider-thumbs
       ul.slider-mini
         li.slider-mini__item(
           v-for="work in works"
-          :class="{active:work.id === currentWork.id, disabled:work.id > 3 && disableItemForSmallScreen}"
+          :class="{active:work.id === currentWork.id, disabled:work.id > 3 && disableItemForSmallScreen && !(work.id === currentWork.id)}"
           @click="$emit('setActiveSlide', work.id)"
           )
           .slider-mini__link
