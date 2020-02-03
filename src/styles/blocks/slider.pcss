@@ -74,11 +74,15 @@
     }
   }
 
-  @include desktop {
+  &.disabled {
+    display: none;
+  }
+
+  /* @include desktop {
     &:nth-child(4) {
       display: none;
     }
-  }
+  } */
 }
 
 .slider-mini {
