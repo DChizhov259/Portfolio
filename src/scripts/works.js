@@ -78,6 +78,10 @@ new Vue({
 
       if (value > worksAmountComputerCounted) this.currentIndex = 0;
       if (value < 0) this.currentIndex = worksAmountComputerCounted;
+    },
+
+    setActiveSlide(index) {
+      this.currentIndex = index - 1; // элементы в массиве начинаются с 1
     }
   },
   watch: {
