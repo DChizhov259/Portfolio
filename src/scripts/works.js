@@ -2,7 +2,14 @@ import Vue from "vue";
 
 const thumbs = {
   template: "#slider-thumbs",
-  props: ["works", "currentWork"]
+  props: ["works", "currentWork", "disableItemForSmallScreen"]
+  // computed: {
+  //   disableItemForSmallScreen() {
+  //     return {
+  //       disabled: document.documentElement.clientWidth < 1200
+  //     };
+  //   }
+  // }
 };
 
 const btns = {
@@ -16,7 +23,7 @@ const display = {
     thumbs,
     btns
   },
-  props: ["works", "currentWork"]
+  props: ["works", "currentWork", "disableItemForSmallScreen"]
 };
 
 const tags = {
@@ -51,6 +58,10 @@ new Vue({
   computed: {
     currentWork() {
       return this.works[this.currentIndex];
+    },
+
+    disableItemForSmallScreen() {
+      return document.documentElement.clientWidth < 1200;
     }
   },
 
