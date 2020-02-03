@@ -6,7 +6,8 @@ const thumbs = {
 };
 
 const btns = {
-  template: "#slider-btns"
+  template: "#slider-btns",
+  props: ["works", "currentWork"]
 };
 
 const display = {
@@ -73,11 +74,13 @@ new Vue({
           break;
       }
     },
-    makeInfiniteLoopForIndex(value) {
+
+    makeStopSlideForIndex(value) {
       const worksAmountComputerCounted = this.works.length - 1;
 
-      if (value > worksAmountComputerCounted) this.currentIndex = 0;
-      if (value < 0) this.currentIndex = worksAmountComputerCounted;
+      if (value > worksAmountComputerCounted)
+        this.currentIndex = worksAmountComputerCounted;
+      if (value < 0) this.currentIndex = 0;
     },
 
     setActiveSlide(index) {
@@ -86,7 +89,7 @@ new Vue({
   },
   watch: {
     currentIndex(value) {
-      this.makeInfiniteLoopForIndex(value);
+      this.makeStopSlideForIndex(value);
     }
   },
   created() {
