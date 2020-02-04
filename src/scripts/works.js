@@ -3,13 +3,6 @@ import Vue from "vue";
 const thumbs = {
   template: "#slider-thumbs",
   props: ["works", "currentWork", "disableItemForSmallScreen"]
-  // computed: {
-  //   disableItemForSmallScreen() {
-  //     return {
-  //       disabled: document.documentElement.clientWidth < 1200
-  //     };
-  //   }
-  // }
 };
 
 const btns = {
