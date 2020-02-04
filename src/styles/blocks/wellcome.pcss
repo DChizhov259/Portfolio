@@ -29,6 +29,10 @@
   @include desktop {
     width: 90%;
   }
+
+  @include phones {
+    width: 83%;
+  }
 }
 
 .wellcome__header {
@@ -47,6 +51,10 @@
 .wellcome__menu {
   margin: 0 90px;
 
+  @include desktop {
+    margin: 0 1%;
+  }
+
   @include tablets {
     display: none;
   }
@@ -56,6 +64,10 @@
   @include tablets {
     margin-left: auto;
     margin-right: 13%;
+  }
+
+  @include phones {
+    display: none;
   }
 }
 
@@ -71,8 +83,12 @@
     flex-direction: column;
     margin-right: 0;
     text-align: center;
-    padding-bottom: 50%;
+    padding-bottom: 90%;
     z-index: 0;
+  }
+
+  @include phones {
+    padding-bottom: 60%;
   }
 }
 
@@ -85,7 +101,7 @@
 }
 
 .wellcome__title {
-  margin-right: 60px;
+  margin-right: 3.3vw;
   text-align: right;
   font-family: "open-sans-sebo";
   font-size: 18px;
@@ -96,6 +112,12 @@
     text-align: center;
     margin-right: 0;
     margin-bottom: 30px;
+  }
+
+  @include phones {
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 2%;
   }
 }
 
@@ -108,12 +130,20 @@
     font-size: 48px;
     line-height: 48px;
   }
+
+  @include phones {
+    font-size: 36px;
+  }
 }
 
 .wellcome__scroll-btn {
   display: flex;
   justify-content: center;
   margin-bottom: 5%;
+
+  @include desktop {
+    opacity: 0.5;
+  }
 
   @include tablets {
     display: none;
