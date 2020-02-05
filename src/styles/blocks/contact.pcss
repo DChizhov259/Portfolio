@@ -15,6 +15,10 @@
   @include desktop {
     padding: 16% 0 9.3% 2.5%;
   }
+
+  @include tablets {
+    padding: 15% 2.7% 15% 2.7%;
+  }
 }
 
 .contact__title {
@@ -23,6 +27,7 @@
   font-family: "open-sans-bo";
 
   @include tablets {
+    font-size: 30px;
     text-align: center;
   }
 }
@@ -45,6 +50,10 @@
   width: 380px;
   margin-bottom: 40px;
 
+  @include tablets {
+    width: 335px;
+  }
+
   &--textarea {
     width: 100%;
     margin-bottom: 0;
@@ -52,10 +61,18 @@
     .contact__form-row__block-input {
       line-height: 36px;
       padding-bottom: 10px;
+
+      @include tablets {
+        line-height: 24px;
+      }
     }
 
     .contact__form-icon {
       transform: translateY(37px);
+
+      @include tablets {
+        transform: translateY(28px);
+      }
     }
   }
 
@@ -79,6 +96,10 @@
   margin-bottom: 5px;
   margin-left: 46px;
   opacity: 0.3;
+
+  @include tablets {
+    font-size: 14px;
+  }
 }
 
 .contact__form-row__block-input {
@@ -93,6 +114,10 @@
   line-height: 48px;
   color: $text-color;
   resize: none;
+
+  @include tablets {
+    font-size: 14px;
+  }
 
   &:hover,
   &:focus {

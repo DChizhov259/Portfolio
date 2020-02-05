@@ -85,6 +85,10 @@
       &__container {
         width: 42vw;
         transition-delay: 0s;
+
+        @include phones {
+          width: 100vw;
+        }
       }
 
       &__btn {

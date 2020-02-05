@@ -3,7 +3,7 @@
   flex-direction: column;
 
   @include desktop {
-    padding: 0 2%;
+    margin-right: 0;
   }
 }
 
@@ -13,8 +13,21 @@
   color: $dark_blue-color;
   margin-bottom: 80px;
   margin-top: 13.5%;
+
+  @include desktop {
+    margin-bottom: 7.3%;
+  }
+
+  @include tablets {
+    font-size: 30px;
+    margin-top: 15.8%;
+  }
 }
 
 .works__content {
   margin-bottom: 10.1%;
+
+  @include tablets {
+    margin-bottom: 16.5%;
+  }
 }

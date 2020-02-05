@@ -1,10 +1,32 @@
 .skill {
   position: relative;
   width: 150px;
+
+  @include desktop {
+    width: 145px;
+  }
+
+  @include tablets {
+    width: 120px;
+  }
 }
 
 .skills__item {
   margin-right: 40px;
+
+  @include tablets {
+    margin-right: 5%;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  @include phones {
+    &:nth-child(even) {
+      margin-right: 0;
+    }
+  }
 }
 
 .skill__title {
@@ -16,6 +38,10 @@
   font-family: "open-sans-bo";
   font-size: 18px;
   opacity: 0.5;
+
+  @include tablets {
+    font-size: 16px;
+  }
 }
 
 .skill__circle {
@@ -28,5 +54,9 @@
     stroke-width: 6px;
     stroke-dasharray: 295;
     stroke-dashoffset: 100;
+
+    @include tablets {
+      stroke-width: 7px;
+    }
   }
 }

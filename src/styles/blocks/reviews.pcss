@@ -9,6 +9,10 @@
   @include desktop {
     padding: 11.5% 0 0 2.5%;
   }
+
+  @include tablets {
+    padding: 15.6% 0 0 2.7%;
+  }
 }
 
 .reviews__slider {
@@ -22,12 +26,22 @@
   margin-right: 8.2%;
   font-family: "open-sans-bo";
   font-size: 36px;
+
+  @include tablets {
+    font-size: 30px;
+    margin-right: 4.3%;
+    margin-bottom: 9.9%;
+  }
 }
 
 .reviews__btns {
   display: flex;
   justify-content: space-between;
   width: 133px;
+
+  @include tablets {
+    width: 120px;
+  }
 
   .reviews-btn {
     display: flex;
@@ -73,6 +87,10 @@
 
 .comment__wrapper {
   display: flex;
+
+  @include tablets {
+    justify-content: flex-start;
+  }
 }
 
 .comment {
@@ -95,7 +113,8 @@
   margin-right: 22px;
 
   @include tablets {
-    transform: scale(0.5);
+    transform: scale(0.5) translate(0, -40%);
+    margin-right: -2%;
   }
 }
 
@@ -104,6 +123,12 @@
   font-size: 16px;
   line-height: 30px;
   opacity: 0.5;
+
+  @include tablets {
+    font-size: 14px;
+    line-height: 24px;
+    max-width: 265px;
+  }
 }
 
 .comment__author {
@@ -115,15 +140,27 @@
   flex-direction: column;
   justify-content: space-evenly;
   margin-left: 30px;
+
+  @include tablets {
+    margin-left: 20px;
+  }
 }
 
 .comment__author-name {
   font-family: "open-sans-bo";
   font-size: 18px;
+
+  @include tablets {
+    font-size: 16px;
+  }
 }
 
 .comment__author-pos {
   font-family: "open-sans-sebo";
   font-size: 16px;
   opacity: 0.3;
+
+  @include tablets {
+    font-size: 14px;
+  }
 }

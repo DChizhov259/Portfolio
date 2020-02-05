@@ -1,6 +1,11 @@
 .slider {
   display: flex;
 
+  @include desktop {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   @include tablets {
     flex-wrap: wrap;
     justify-content: center;
@@ -15,27 +20,42 @@
 
   @include desktop {
     width: 57.5%;
+    min-width: 630px;
   }
 }
 
 .slider__display-pic {
-  max-height: 90%;
+  height: 90%;
   position: relative;
   overflow: hidden;
+
+  @include desktop {
+    height: 80.8%;
+  }
+
+  @include tablets {
+    height: 90%;
+  }
 }
 
 .slider-image {
-  object-fit: cover;
+  /* object-fit: cover; */
+  width: 100%;
   object-position: top;
 }
 
 .slider__display-mini {
   position: absolute;
-  top: 64%;
+  bottom: 19%;
   right: 0;
   z-index: 2;
 
   @include desktop {
+    bottom: inherit;
+    top: 51%;
+  }
+
+  @include tablets {
     top: 57%;
   }
 }
@@ -108,10 +128,15 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  top: 64%;
+  bottom: 19%;
   right: -50px;
 
   @include desktop {
+    bottom: inherit;
+    top: 51%;
+  }
+
+  @include tablets {
     top: 57%;
   }
 }
@@ -145,6 +170,7 @@
   &.disabled {
     .slider-arrow {
       fill-opacity: 0.3;
+      pointer-events: none;
     }
   }
 }
@@ -164,8 +190,13 @@
   @include desktop {
     font-size: 300px;
     margin-right: -11px;
-    margin-top: 9.9%;
+    margin-top: 107px;
     margin-left: -55px;
+  }
+
+  @include tablets {
+    margin-right: -30px;
+    margin-top: 110px;
   }
 }
 
@@ -173,10 +204,24 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  min-width: 350px;
+
+  @include desktop {
+    margin-right: 4%;
+    min-width: 25%;
+  }
+
+  @include tablets {
+    max-width: 445px;
+  }
 }
 
 .slider__info__tags {
   margin-bottom: 40px;
+
+  @include tablets {
+    margin-bottom: 25px;
+  }
 }
 
 .tags {
@@ -188,11 +233,12 @@
 .tags__item {
   font-family: "open-sans-sebo";
   font-size: 15px;
+  white-space: nowrap;
   margin-right: 10px;
   padding: 15px 20px;
   border-radius: 35px;
   color: $dark_blue-color;
-  opacity: 0.7;
+  /* opacity: 0.7; */
   background-color: rgba($tags-color, 0.1);
 }
 
@@ -202,6 +248,10 @@
   line-height: 48px;
   color: $dark_blue-color;
   margin-bottom: 30px;
+
+  @include tablets {
+    margin-bottom: 25px;
+  }
 }
 
 .slider__info__desc-text {
@@ -214,6 +264,12 @@
 
   @include desktop {
     hyphens: auto;
+  }
+
+  @include tablets {
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 25px;
   }
 }
 
@@ -231,6 +287,10 @@
 .slider__info-link {
   font-family: "open-sans-bo";
   font-size: 18px;
+
+  @include tablets {
+    font-size: 14px;
+  }
 
   &:hover {
     border-bottom: 2px solid;

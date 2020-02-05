@@ -54,7 +54,7 @@ new Vue({
     },
 
     disableItemForSmallScreen() {
-      return document.documentElement.clientWidth < 1200;
+      return document.documentElement.clientWidth <= 1300;
     }
   },
 
