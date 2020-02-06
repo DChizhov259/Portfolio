@@ -16,7 +16,7 @@ const display = {
     thumbs,
     btns
   },
-  props: ["works", "currentWork", "disableItemForSmallScreen"]
+  props: ["works", "currentWork", "disableItemForSmallScreen", "currentIndex"]
 };
 
 const tags = {

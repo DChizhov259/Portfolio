@@ -3,17 +3,18 @@ script(type="text/x-template")#slider-container
     display(
       :works="works",
       :currentWork="currentWork"
+      :currentIndex="currentIndex"
       @slide="handleSlide"
       @setActiveSlide="setActiveSlide"
       :disableItemForSmallScreen="disableItemForSmallScreen"
     )
-    .slider__number {{currentIndex + 1}}
+    //- .slider__number {{currentIndex + 1}}
     info(
       :currentWork="currentWork"
     )
 
 script(type="text/x-template")#slider-display
-  .slider__display
+  .slider__display(:num-slide="currentIndex + 1")
     .slider__display-pic
       img(:src="currentWork.photo" alt="slider-pic" class="slider-image")
     thumbs(

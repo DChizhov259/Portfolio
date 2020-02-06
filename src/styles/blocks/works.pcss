@@ -5,6 +5,16 @@
   @include desktop {
     margin-right: 0;
   }
+
+  @include tablets {
+    margin: 0 5.2%;
+  }
+
+  @include phones {
+    width: 100%;
+    margin: 0;
+    align-items: center;
+  }
 }
 
 .works__title {
@@ -12,7 +22,7 @@
   font-size: 36px;
   color: $dark_blue-color;
   margin-bottom: 80px;
-  margin-top: 13.5%;
+  margin-top: 13%;
 
   @include desktop {
     margin-bottom: 7.3%;
@@ -22,6 +32,12 @@
     font-size: 30px;
     margin-top: 15.8%;
   }
+
+  @include phones {
+    font-size: 24px;
+    margin-top: 32.9%;
+    margin-bottom: 10%;
+  }
 }
 
 .works__content {
@@ -29,5 +45,9 @@
 
   @include tablets {
     margin-bottom: 16.5%;
+  }
+
+  @include phones {
+    margin-bottom: 30%;
   }
 }
