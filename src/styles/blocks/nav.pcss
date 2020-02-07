@@ -1,7 +1,7 @@
 .navigation__menu {
   display: flex;
 
-  @include tablets {
+  @include desktop {
     flex-wrap: wrap;
   }
 }
@@ -10,7 +10,19 @@
   margin-right: 60px;
 
   @include desktop {
-    margin-right: 10.3%;
+    margin-right: 5vw;
+  }
+
+  @include tablets {
+    margin-right: 13%;
+  }
+
+  @include phones {
+    margin-right: 33%;
+
+    &:nth-child(even) {
+      margin-right: 0;
+    }
   }
 
   &:last-child {

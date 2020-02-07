@@ -8,7 +8,16 @@
   display: flex;
 
   @include desktop {
-    padding: 6% 3% 6.5% 2.5%;
+    padding: 6% 2.5% 6.5% 2.5%;
+  }
+
+  @include tablets {
+    flex-wrap: wrap;
+    padding: 6% 2% 8.5% 2.5%;
+  }
+
+  @include phones {
+    padding: 17% 10% 17% 6.8%;
   }
 }
 
@@ -20,6 +29,15 @@
     flex-wrap: wrap;
     margin-right: 5%;
   }
+
+  @include tablets {
+    flex-direction: column;
+    margin-right: 1.5%;
+  }
+
+  @include phones {
+    margin-bottom: 30px;
+  }
 }
 
 .copyright {
@@ -29,10 +47,22 @@
   margin-right: 60px;
   white-space: nowrap;
   opacity: 0.1;
+
+  @include tablets {
+    margin-bottom: 13px;
+    line-height: 56px;
+  }
 }
 
 .footer__title {
   margin-right: 9.9%;
+
+  @include phones {
+    margin-right: 0;
+    br {
+      display: none;
+    }
+  }
 }
 
 .footer__dev-name {
@@ -45,6 +75,10 @@
   @include desktop {
     margin-bottom: 15px;
   }
+
+  @include phones {
+    margin-bottom: 5px;
+  }
 }
 
 .footer__dev-text {
@@ -53,12 +87,33 @@
   font-size: 16px;
   line-height: 30px;
   opacity: 0.15;
+
+  @include tablets {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  @include phones {
+    width: 100%;
+  }
 }
 
 .footer__main-block {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 72%;
+
+  @include desktop {
+    width: 120%;
+  }
+
+  @include tablets {
+    width: 65%;
+  }
+
+  @include phones {
+    width: 100%;
+  }
 }
 
 .footer__menu {
@@ -67,14 +122,31 @@
   @include desktop {
     margin-bottom: 45px;
   }
+
+  @include tablets {
+    .navigation__link {
+      font-size: 14px;
+      line-height: 42px;
+    }
+  }
+
+  @include phones {
+    margin-bottom: 30px;
+  }
 }
 
 .footer__desc-wrapper {
   display: flex;
   justify-content: space-between;
 
+  @include desktop {
+    flex-wrap: wrap;
+  }
+
   @include tablets {
     flex-wrap: wrap;
+    flex-direction: column;
+    max-width: 445px;
   }
 }
 
@@ -82,6 +154,10 @@
   display: flex;
   flex-direction: column;
   margin-right: 50px;
+
+  @include tablets {
+    margin-right: 0;
+  }
 }
 
 .footer__desc {
@@ -94,6 +170,13 @@
 
   @include desktop {
     margin-bottom: 20px;
+  }
+
+  @include tablets {
+    font-size: 14px;
+    line-height: 24px;
+    width: auto;
+    margin-bottom: 15px;
   }
 }
 
@@ -117,20 +200,44 @@
       }
     }
   }
+
+  @include tablets {
+    margin-bottom: 50px;
+  }
 }
 
 .footer__proverb {
-  width: 425px;
+  flex: 0.8;
+  /* min-width: 425px; */
+  max-width: 425px;
   display: flex;
   flex-direction: column;
   font-size: 16px;
   line-height: 30px;
+
+  @include desktop {
+    flex: 1;
+  }
+
+  @include tablets {
+    font-size: 14px;
+    line-height: 24px;
+    width: auto;
+  }
 }
 
 .footer__proverb-text {
   margin-bottom: 20px;
   font-family: "open-sans-regular";
   opacity: 0.3;
+
+  @include tablets {
+    margin-bottom: 7px;
+  }
+
+  @include phones {
+    margin-bottom: 20px;
+  }
 }
 
 .footer__proverb-author {

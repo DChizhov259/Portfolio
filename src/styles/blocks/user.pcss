@@ -1,16 +1,42 @@
 .user {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
+
+  @include tablets {
+    align-items: flex-start;
+  }
+
+  @include phones {
+    align-items: center;
+  }
 }
 
 .user__avatar {
   margin-bottom: 70px;
+
+  @include tablets {
+    margin-bottom: 18%;
+  }
+
+  @include phones {
+    margin-bottom: 6%;
+  }
+}
+
+@include phones {
+  .user__info {
+    width: 100%;
+  }
 }
 
 .user__data-table {
   font-family: "open-sans-sebo";
   font-size: 16px;
+
+  @include tablets {
+    font-size: 14px;
+  }
 }
 
 .user__data-cell {

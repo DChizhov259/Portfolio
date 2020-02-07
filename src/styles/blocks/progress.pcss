@@ -16,22 +16,29 @@
     background-image: url("../images/content/Руки.png");
     background-repeat: no-repeat;
     background-position: top 49% left;
+    background-size: 37%;
     transform: translate(0, 10.3%);
     z-index: 1;
 
     @include desktop {
-      transform: scale(0.72) translate(-30%, 24.5%);
+      transform: scale(1.1) translate(-2%, 16%);
     }
 
     @include tablets {
-      transform: rotate(-90deg) translate(10%);
-      background-position: top 50% left;
-      width: 150%;
+      background-image: url("../images/content/Руки_768.png");
+      background-position: left 59% bottom;
+      height: 68.9%;
+      background-size: 58%;
+    }
+
+    @include phones {
+      background-size: 96%;
+      background-position: left 12px bottom;
     }
   }
 
   @include tablets {
-    height: 100vh;
+    height: 100%;
   }
 }
 
@@ -45,6 +52,15 @@
   @include desktop {
     padding: 12.5% 0;
   }
+
+  @include tablets {
+    padding: 15% 0 45.5% 0;
+  }
+
+  @include phones {
+    padding: 185px 0 257px 0;
+    width: 82%;
+  }
 }
 
 .progress__desc-block {
@@ -55,12 +71,20 @@
 
   @include desktop {
     margin-right: 23%;
-    margin-bottom: 80px;
+    margin-bottom: 7%;
   }
 
   @include tablets {
     margin-right: auto;
     text-align: center;
+    max-width: 60%;
+  }
+
+  @include phones {
+    margin: 0;
+    margin-bottom: 50px;
+    max-width: 100%;
+    text-align: left;
   }
 }
 
@@ -71,7 +95,14 @@
 
   @include tablets {
     width: 60%;
-    margin: 0 auto;
+    margin: 0 auto 3% auto;
+  }
+
+  @include phones {
+    font-size: 24px;
+    line-height: 36px;
+    width: 100%;
+    margin-bottom: 15px;
   }
 }
 
@@ -80,6 +111,11 @@
   font-size: 16px;
   line-height: 30px;
   opacity: 0.5;
+
+  @include tablets {
+    font-size: 14px;
+    line-height: 24px;
+  }
 }
 
 .progress__skills-block {
@@ -89,6 +125,17 @@
 
   @include desktop {
     margin-right: 1%;
+  }
+
+  @include tablets {
+    margin-right: auto;
+    min-width: auto;
+    width: 80%;
+  }
+
+  @include phones {
+    margin: 0;
+    width: auto;
   }
 }
 
@@ -102,6 +149,10 @@
   @include desktop {
     margin-bottom: 40px;
   }
+
+  @include tablets {
+    margin-bottom: 8.5%;
+  }
 }
 
 .skills-row__title {
@@ -111,10 +162,13 @@
 
   @include tablets {
     text-align: center;
+    font-size: 18px;
+    margin-bottom: 25px;
   }
 }
 
 .skills-list {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }

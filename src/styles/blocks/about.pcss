@@ -23,8 +23,14 @@
   }
 
   @include tablets {
-    margin-left: 7%;
-    padding-right: 7%;
+    margin-left: 5%;
+    padding-right: 5%;
+  }
+
+  @include phones {
+    flex-direction: column;
+    padding: 0;
+    margin: 0 10%;
   }
 }
 
@@ -33,11 +39,19 @@
   margin-right: 145px;
 
   @include desktop {
-    margin-right: 155px;
+    margin-right: 13.6%;
+    margin-left: 3%;
   }
 
   @include tablets {
-    margin-right: 13%;
+    margin-left: 0;
+    margin-right: 12%;
+  }
+
+  @include phones {
+    margin-bottom: 35px;
+    width: 260px;
+    margin-right: 0;
   }
 }
 
@@ -46,17 +60,32 @@
   font-family: "open-sans-sebo";
   font-size: 16px;
   line-height: 30px;
+
   p {
     opacity: 0.5;
   }
 
   @include tablets {
     width: auto;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  @include phones {
+    width: 84%;
   }
 }
 
 .about__greeting {
   margin-bottom: 100px;
+
+  @include desktop {
+    margin-bottom: 18.9%;
+  }
+
+  @include tablets {
+    margin-bottom: 14%;
+  }
 }
 
 .about__username {
@@ -64,6 +93,11 @@
   margin: 30px 0;
   font-size: 36px;
   opacity: 1;
+
+  @include tablets {
+    font-size: 30px;
+    margin: 15px 0 45px 0;
+  }
 }
 
 .about__postscript {
@@ -77,5 +111,9 @@
     font-size: 48px;
     transform: rotate(15deg) translate(-50px, 20px);
     opacity: 0.2;
+
+    @include phones {
+      transform: translate(-30px, 6px);
+    }
   }
 }

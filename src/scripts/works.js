@@ -16,7 +16,7 @@ const display = {
     thumbs,
     btns
   },
-  props: ["works", "currentWork", "disableItemForSmallScreen"]
+  props: ["works", "currentWork", "disableItemForSmallScreen", "currentIndex"]
 };
 
 const tags = {
@@ -54,7 +54,7 @@ new Vue({
     },
 
     disableItemForSmallScreen() {
-      return document.documentElement.clientWidth < 1200;
+      return document.documentElement.clientWidth <= 1300;
     }
   },
 
