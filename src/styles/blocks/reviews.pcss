@@ -19,6 +19,13 @@
   display: flex;
   flex-wrap: wrap;
   max-width: 926px;
+
+  @include phones {
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    min-width: 100%;
+  }
 }
 
 .reviews__title {
@@ -32,6 +39,12 @@
     margin-right: 4.3%;
     margin-bottom: 9.9%;
   }
+
+  @include phones {
+    font-size: 24px;
+    margin-right: 0;
+    margin-bottom: 25px;
+  }
 }
 
 .reviews__btns {
@@ -41,6 +54,10 @@
 
   @include tablets {
     width: 120px;
+  }
+
+  @include phones {
+    margin-bottom: 25px;
   }
 
   .reviews-btn {
@@ -67,7 +84,7 @@
     }
 
     .slider-arrow {
-      width: 6px;
+      width: 10px;
       height: 10px;
       fill: $reviews_arrow-color;
     }
@@ -102,6 +119,10 @@
 
   @include desktop {
     width: 360px;
+  }
+
+  @include phones {
+    height: 190px;
   }
 }
 

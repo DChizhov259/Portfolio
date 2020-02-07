@@ -20,6 +20,7 @@ const comments = {
       swiperOption: {
         autoplay: true,
         slidesPerView: 2,
+        // slidesOffsetBefore: 65,
         spaceBetween: 1,
         navigation: {
           nextEl: ".reviews-btn--next",

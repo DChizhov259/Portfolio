@@ -19,6 +19,10 @@
   @include tablets {
     padding: 15% 2.7% 15% 2.7%;
   }
+
+  @include phones {
+    padding: 145px 8% 110px 8%;
+  }
 }
 
 .contact__title {
@@ -29,6 +33,11 @@
   @include tablets {
     font-size: 30px;
     text-align: center;
+  }
+
+  @include phones {
+    font-size: 24px;
+    margin-bottom: 55px;
   }
 }
 
@@ -43,15 +52,25 @@
 
 .contact__form-row {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+
+  @include phones {
+    flex-direction: column;
+    width: 100%;
+  }
 }
 
 .contact__form-row__block {
-  width: 380px;
+  width: 45%;
   margin-bottom: 40px;
 
   @include tablets {
     width: 335px;
+  }
+
+  @include phones {
+    width: inherit;
   }
 
   &--textarea {
@@ -65,6 +84,10 @@
       @include tablets {
         line-height: 24px;
       }
+
+      @include phones {
+        height: 117px;
+      }
     }
 
     .contact__form-icon {
@@ -72,6 +95,10 @@
 
       @include tablets {
         transform: translateY(28px);
+      }
+
+      @include phones {
+        transform: translateY(30px);
       }
     }
   }
@@ -88,6 +115,10 @@
   opacity: 0.3;
   position: absolute;
   transform: translate(0, 43px);
+
+  @include phones {
+    transform: translate(0, 38px);
+  }
 }
 
 .contact__form-row__block-label {
@@ -100,10 +131,14 @@
   @include tablets {
     font-size: 14px;
   }
+
+  @include phones {
+    margin-bottom: 10px;
+  }
 }
 
 .contact__form-row__block-input {
-  width: inherit;
+  width: 100%;
   border: none;
   border-bottom: 1px solid $form_border-color;
   background: none;
@@ -117,6 +152,10 @@
 
   @include tablets {
     font-size: 14px;
+  }
+
+  @include phones {
+    line-height: 36px;
   }
 
   &:hover,
@@ -152,4 +191,10 @@
   color: $text-color;
   font-family: "open-sans-bo";
   font-size: 18px;
+
+  @include phones {
+    width: 260px;
+    height: 60px;
+    font-size: 16px;
+  }
 }

@@ -7,7 +7,6 @@
   }
 
   @include tablets {
-    /* flex-wrap: wrap; */
     flex-direction: column;
     text-align: center;
   }
@@ -28,9 +27,7 @@
 
   @include tablets {
     width: auto;
-    /* min-width: 320px; */
     margin-right: 14%;
-    /* height: initial; */
     height: 46vw;
   }
 
@@ -78,12 +75,7 @@
 
 .slider-image {
   object-fit: cover;
-  /* width: 100%; */
   object-position: top;
-
-  /* @include tablets {
-    height: 50vw;
-  } */
 }
 
 .slider__display-mini {
@@ -140,12 +132,6 @@
   &.disabled {
     display: none;
   }
-
-  /* @include desktop {
-    &:nth-child(4) {
-      display: none;
-    }
-  } */
 }
 
 .slider-mini {
@@ -219,31 +205,6 @@
   }
 }
 
-/* .slider__number { */
-/* content: attr(data-slide); */
-/* display: flex; */
-/* margin-top: 16%; */
-/* margin-left: -60px;
-  margin-right: -13px;
-  font-family: "open-sans-exbo";
-  font-size: 400px; */
-/* line-height: 0; */
-/* color: $slider_number-color;
-  z-index: 0;
-
-  @include desktop {
-    font-size: 300px;
-    margin-right: -11px;
-    margin-top: 111px;
-    margin-left: -55px;
-  }
-
-  @include tablets {
-    margin-right: -30px;
-    margin-top: 110px;
-  }
-} */
-
 .slider__info {
   flex: 1;
   display: flex;
@@ -294,7 +255,6 @@
   padding: 15px 20px;
   border-radius: 35px;
   color: $dark_blue-color;
-  /* opacity: 0.7; */
   background-color: rgba($tags-color, 0.1);
 
   &:last-child {

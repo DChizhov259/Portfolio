@@ -30,6 +30,11 @@
       height: 68.9%;
       background-size: 58%;
     }
+
+    @include phones {
+      background-size: 96%;
+      background-position: left 12px bottom;
+    }
   }
 
   @include tablets {
@@ -51,6 +56,11 @@
   @include tablets {
     padding: 15% 0 45.5% 0;
   }
+
+  @include phones {
+    padding: 185px 0 257px 0;
+    width: 82%;
+  }
 }
 
 .progress__desc-block {
@@ -69,6 +79,13 @@
     text-align: center;
     max-width: 60%;
   }
+
+  @include phones {
+    margin: 0;
+    margin-bottom: 50px;
+    max-width: 100%;
+    text-align: left;
+  }
 }
 
 .progress__title {
@@ -79,6 +96,13 @@
   @include tablets {
     width: 60%;
     margin: 0 auto 3% auto;
+  }
+
+  @include phones {
+    font-size: 24px;
+    line-height: 36px;
+    width: 100%;
+    margin-bottom: 15px;
   }
 }
 
