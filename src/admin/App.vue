@@ -1,5 +1,5 @@
 <style lang="postcss">
-/* @import "../mixins.pcss"; */
+@import "../styles/mixins.pcss";
 
 .admin-wrapper {
   background: url("../images/content/intro_bg.jpg"), rgba(255, 255, 255, 0.9);
@@ -9,11 +9,16 @@
   background-repeat: no-repeat;
 }
 
-.container {
+.admin__about {
   max-width: 1080px;
+  width: 88%;
+
+  @include phones {
+    width: 100vw;
+  }
 }
 
-.header {
+.admin__header {
   width: 100%;
 }
 
@@ -27,6 +32,13 @@
 .header__main-container {
   display: flex;
   align-items: center;
+  max-width: 1080px;
+
+  @include phones {
+    flex-wrap: wrap;
+    width: 88%;
+    margin-bottom: 15px;
+  }
 }
 
 .header__main__admin-avatar {
@@ -35,17 +47,29 @@
   border-radius: 50%;
   overflow: hidden;
   margin-right: 20px;
+
+  @include phones {
+    transform: translate(0, 10px);
+  }
 }
 
 .header__main__admin-name {
   margin-right: 28px;
   font-size: 18px;
   font-family: "open-sans-sebo";
+
+  @include phones {
+    font-size: 16px;
+  }
 }
 
 .header__main__title {
   font-size: 14px;
   opacity: 0.5;
+
+  @include phones {
+    display: none;
+  }
 }
 
 .header__main__logout-btn {
@@ -56,6 +80,15 @@
   font-size: 16px;
   text-decoration: underline;
   opacity: 0.7;
+
+  @include tablets {
+    font-size: 14px;
+  }
+
+  @include phones {
+    margin-left: 60px;
+    line-height: 0;
+  }
 }
 
 .header__nav {
@@ -69,6 +102,11 @@
   display: flex;
   align-items: center;
   height: 100%;
+  max-width: 1080px;
+
+  @include phones {
+    width: 88%;
+  }
 }
 
 .header__nav-btn {
@@ -77,6 +115,10 @@
   width: 125px;
   font-size: 16px;
   background: none;
+
+  @include phones {
+    font-size: 14px;
+  }
 
   &--active {
     border-bottom: 3px solid $orange-color;
@@ -91,13 +133,27 @@
   flex-wrap: wrap;
   align-items: center;
   height: 138px;
+
+  @include tablets {
+    height: 118px;
+  }
+
+  @include phones {
+    margin: 0 auto;
+    width: 88%;
+    height: 150px;
+    padding: 8% 0;
+  }
 }
 
 .about__title {
   color: $dark_blue-color;
   font-family: "open-sans-bo";
   font-size: 21px;
-  margin-right: 6.4%;
+
+  @include phones {
+    font-size: 18px;
+  }
 }
 
 .about__add-group-btn {
@@ -105,6 +161,16 @@
   font-family: "open-sans-sebo";
   color: $orange-color;
   font-size: 16px;
+  margin-left: 6.4%;
+
+  @include tablets {
+    font-size: 14px;
+    margin-left: 10%;
+  }
+
+  @include phones {
+    margin-left: 30px;
+  }
 
   &::before {
     content: "";
@@ -115,6 +181,10 @@
     border-radius: 50%;
     background-color: $orange-color;
     transform: translate(-33px, -2px);
+
+    @include tablets {
+      transform: translate(-33px, -4px);
+    }
   }
   &::after {
     content: "";
@@ -136,6 +206,16 @@
   grid-gap: 30px;
   grid-template-columns: 1fr 1fr;
   margin-bottom: 30px;
+
+  @include tablets {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 2fr));
+    grid-gap: 20px;
+  }
+
+  @include phones {
+    grid-template-columns: 1fr;
+    grid-gap: 10px 0;
+  }
 }
 
 .group-block {
@@ -154,6 +234,11 @@
   width: 92.4%;
   height: 100%;
   border-bottom: 1px solid rgba(#414c63, 0.15);
+
+  @include phones {
+    width: 100%;
+    padding: 0 10px;
+  }
 
   &-text {
     resize: none;
@@ -249,6 +334,14 @@
   font-size: 16px;
   color: $dark_blue-color;
 
+  @include tablets {
+    margin-top: 15px;
+  }
+
+  @include phones {
+    margin-top: 20px;
+  }
+
   &:first-child {
     margin-top: 30px;
   }
@@ -301,10 +394,23 @@
     border: none;
     background: none;
     outline: none;
+
+    @include tablets {
+      width: 47%;
+    }
+
+    @include phones {
+      width: 44%;
+      font-size: 14px;
+    }
   }
 
   &-value {
     width: 75px;
+
+    @include tablets {
+      width: 70px;
+    }
     &:after {
       content: "%";
     }
@@ -357,6 +463,10 @@
   line-height: 2.5;
   color: $dark_blue-color;
 
+  @include phones {
+    line-height: 2.7;
+  }
+
   &-title {
     width: 45%;
     margin-right: 10px;
@@ -367,6 +477,10 @@
     outline: none;
     border-bottom: 1px solid #000;
 
+    @include phones {
+      padding-left: 10px;
+    }
+
     &::placeholder {
       opacity: 0.5;
     }
@@ -375,7 +489,7 @@
   &-value {
     border-bottom: 1px solid #000;
     width: 75px;
-    margin-right: 30px;
+    margin-right: 6.3%;
     &:after {
       content: "%";
     }
@@ -419,7 +533,7 @@
 <template lang="pug">
   .admin
     //- h1 Welcome to the Vue App заработало
-    header.header
+    header.admin__header
       .header__main
         .header__main-container.container
           img(src=('../images/content/userfiles/user.jpg') alt='avatar').header__main__admin-avatar
@@ -431,7 +545,7 @@
           button.header__nav-btn.header__nav-btn--active Обо мне
           button.header__nav-btn Работы
           button.header__nav-btn Отзывы
-    section.about.container
+    section.admin__about.container
       .about__title-section
         .about__title Блок «Обо мне»
         button.about__add-group-btn Добавить группу
