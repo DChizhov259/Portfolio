@@ -1,7 +1,15 @@
 <style lang="postcss">
 /* @import "../mixins.pcss"; */
+
+.admin-wrapper {
+  background: url("../images/content/intro_bg.jpg"), rgba(255, 255, 255, 0.9);
+  background-blend-mode: overlay;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .container {
-  background-color: #d1cf49;
   max-width: 1080px;
 }
 
@@ -12,18 +20,16 @@
 .header__main {
   display: flex;
   align-items: center;
-  background-color: #3e3e58;
+  background-color: $dark_blue-color;
   height: 80px;
 }
 
 .header__main-container {
   display: flex;
   align-items: center;
-  background-color: #55c78e;
 }
 
 .header__main__admin-avatar {
-  background-color: #ee955a;
   height: 45px;
   width: 45px;
   border-radius: 50%;
@@ -33,17 +39,30 @@
 
 .header__main__admin-name {
   margin-right: 28px;
+  font-size: 18px;
+  font-family: "open-sans-sebo";
+}
+
+.header__main__title {
+  font-size: 14px;
+  opacity: 0.5;
 }
 
 .header__main__logout-btn {
-  background-color: #d46627;
+  color: #ffffff;
+  background: none;
   margin-left: auto;
+  font-family: "open-sans-regular";
+  font-size: 16px;
+  text-decoration: underline;
+  opacity: 0.7;
 }
 
 .header__nav {
   display: flex;
   align-items: center;
   height: 75px;
+  background-color: #fff;
 }
 
 .header__nav-container {
@@ -56,14 +75,15 @@
   height: 100%;
   padding: 0;
   width: 125px;
+  font-size: 16px;
+  background: none;
 
   &--active {
-    border-bottom: 3px solid #383bcf;
+    border-bottom: 3px solid $orange-color;
+    color: $orange-color;
+    font-family: "open-sans-sebo";
+    transition: 0.3s;
   }
-}
-
-.about {
-  background-color: #d42d2d;
 }
 
 .about__title-section {
@@ -74,30 +94,60 @@
 }
 
 .about__title {
+  color: $dark_blue-color;
+  font-family: "open-sans-bo";
   font-size: 21px;
   margin-right: 6.4%;
 }
 
 .about__add-group-btn {
   background: transparent;
+  font-family: "open-sans-sebo";
+  color: $orange-color;
+  font-size: 16px;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: $orange-color;
+    transform: translate(-33px, -2px);
+  }
+  &::after {
+    content: "";
+    display: block;
+    height: 7px;
+    width: 7px;
+    background-image: svg-load(
+      "plus.svg",
+      fill=#ffffff,
+      width=100%,
+      height=100%
+    );
+    transform: translate(-26px, -12px);
+  }
 }
 
 .about__group-block-container {
   display: grid;
   grid-gap: 30px;
   grid-template-columns: 1fr 1fr;
+  margin-bottom: 30px;
 }
 
 .group-block {
-  background-color: #f8eb2d;
+  background-color: #ffffff;
   height: 390px;
   display: grid;
   grid-template-rows: 1fr 3fr 1fr;
   align-items: center;
+  box-shadow: 3px 3px 15px 1px #8d8d8d5b;
 }
 
 .group-block__title {
-  background-color: #ece798;
   display: flex;
   justify-self: center;
   align-items: center;
@@ -109,13 +159,20 @@
     resize: none;
     border: none;
     background: none;
+    outline: none;
     width: 56.7%;
     padding: 14px 0 14px;
     margin-left: 9px;
+    font-family: "open-sans-sebo";
+    font-size: 18px;
+    color: $dark_blue-color;
+
+    &::placeholder {
+      opacity: 0.5;
+    }
   }
 
   &-action {
-    background-color: #f7f7d2;
     text-align: right;
     margin-left: auto;
     display: flex;
@@ -125,6 +182,11 @@
       width: 15px;
       background: svg-load("pencil.svg", fill=#a0a5b1, width=100%, height=100%);
       margin-right: 10px;
+    }
+
+    &__apply,
+    &__cancel {
+      display: none;
     }
   }
 
@@ -140,6 +202,7 @@
         }
 
         &__apply {
+          display: initial;
           height: 15px;
           width: 15px;
           background: svg-load(
@@ -152,6 +215,7 @@
         }
 
         &__cancel {
+          display: initial;
           height: 15px;
           width: 15px;
           background: svg-load(
@@ -180,7 +244,10 @@
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  margin-top: 15px;
+  margin-top: 20px;
+  font-family: "open-sans-regular";
+  font-size: 16px;
+  color: $dark_blue-color;
 
   &:first-child {
     margin-top: 30px;
@@ -190,7 +257,6 @@
     .group-block__skill {
       &-title,
       &-value {
-        background-color: #b3f399;
         border-bottom: 1px solid #000;
       }
       &-action {
@@ -199,6 +265,7 @@
           display: none;
         }
         &__apply {
+          display: initial;
           height: 15px;
           width: 15px;
           background: svg-load(
@@ -210,6 +277,7 @@
           margin-right: 15px;
         }
         &__cancel {
+          display: initial;
           height: 15px;
           width: 15px;
           background: svg-load(
@@ -225,19 +293,18 @@
   }
 
   &-title {
-    background-color: #b3f399;
     width: 56.7%;
     height: 100%;
     margin-left: 9px;
     margin-right: 4.2%;
     resize: none;
     border: none;
-    /* background: none; */
+    background: none;
+    outline: none;
   }
 
   &-value {
-    width: 15.5%;
-    background-color: #b3f399;
+    width: 75px;
     &:after {
       content: "%";
     }
@@ -248,11 +315,11 @@
       resize: none;
       border: none;
       background: none;
+      outline: none;
     }
   }
 
   &-action {
-    background-color: #f7f7d2;
     text-align: right;
     display: flex;
     margin-left: auto;
@@ -262,6 +329,11 @@
       width: 15px;
       background: svg-load("pencil.svg", fill=#a0a5b1, width=100%, height=100%);
       margin-right: 15px;
+    }
+
+    &__apply,
+    &__cancel {
+      display: none;
     }
 
     &__trash {
@@ -278,20 +350,31 @@
   justify-content: flex-end;
   justify-self: center;
   width: 92.4%;
+  padding-right: 10px;
+  margin-bottom: 25px;
+  font-family: "open-sans-regular";
+  font-size: 16px;
+  line-height: 2.5;
+  color: $dark_blue-color;
 
   &-title {
     width: 45%;
     margin-right: 10px;
+    padding-left: 20px;
     resize: none;
     border: none;
     background: none;
+    outline: none;
     border-bottom: 1px solid #000;
+
+    &::placeholder {
+      opacity: 0.5;
+    }
   }
 
   &-value {
-    background-color: #b3f399;
     border-bottom: 1px solid #000;
-    width: 15.5%;
+    width: 75px;
     margin-right: 30px;
     &:after {
       content: "%";
@@ -303,6 +386,11 @@
       resize: none;
       border: none;
       background: none;
+      outline: none;
+
+      &::placeholder {
+        opacity: 0.5;
+      }
     }
   }
 
@@ -310,7 +398,7 @@
     height: 40px;
     width: 40px;
     border-radius: 50%;
-    background-color: rgb(37, 55, 218);
+    background-color: $orange-color;
 
     &::before {
       content: "";
@@ -334,7 +422,7 @@
     header.header
       .header__main
         .header__main-container.container
-          .header__main__admin-avatar
+          img(src=('../images/content/userfiles/user.jpg') alt='avatar').header__main__admin-avatar
           .header__main__admin-name Дмитрий Чижов
           .header__main__title Панель администрирования
           button.header__main__logout-btn Выйти
@@ -353,114 +441,114 @@
           .group-block__title.group-block__title--edited
             input.group-block__title-text(name='textarea', type='text', placeholder='Название новой группы')
             .group-block__title-action
-              .group-block__title-action__apply
-              .group-block__title-action__cancel
-              .group-block__title-action__edit
+              button.group-block__title-action__apply
+              button.group-block__title-action__cancel
+              button.group-block__title-action__edit
           ul.group-block__skill-list
           .group-block__new-skill
             input.group-block__new-skill-title(name='textarea', type='text', placeholder='Новый навык')
             .group-block__new-skill-value
-              input.group-block__new-skill-value-percent
+              input.group-block__new-skill-value-percent(name='textarea', type='text', placeholder='100')
             button.group-block__new-skill-add-btn
 
         .group-block
           .group-block__title.group-block__title--edited
             input.group-block__title-text(name='textarea', type='text', placeholder='Название новой группы')
             .group-block__title-action
-              .group-block__title-action__apply
-              .group-block__title-action__cancel
-              .group-block__title-action__edit
+              button.group-block__title-action__apply
+              button.group-block__title-action__cancel
+              button.group-block__title-action__edit
           ul.group-block__skill-list
             li.group-block__skill
               input.group-block__skill-title
               .group-block__skill-value
                 input.group-block__skill-value-percent
               .group-block__skill-action
-                .group-block__skill-action__apply
-                .group-block__skill-action__cancel
-                .group-block__skill-action__edit
-                .group-block__skill-action__trash
+                button.group-block__skill-action__apply
+                button.group-block__skill-action__cancel
+                button.group-block__skill-action__edit
+                button.group-block__skill-action__trash
             li.group-block__skill
               input.group-block__skill-title
               .group-block__skill-value
                 input.group-block__skill-value-percent
               .group-block__skill-action
-                .group-block__skill-action__apply
-                .group-block__skill-action__cancel
-                .group-block__skill-action__edit
-                .group-block__skill-action__trash
+                button.group-block__skill-action__apply
+                button.group-block__skill-action__cancel
+                button.group-block__skill-action__edit
+                button.group-block__skill-action__trash
             li.group-block__skill
               input.group-block__skill-title
               .group-block__skill-value
                 input.group-block__skill-value-percent
               .group-block__skill-action
-                .group-block__skill-action__apply
-                .group-block__skill-action__cancel
-                .group-block__skill-action__edit
-                .group-block__skill-action__trash
+                button.group-block__skill-action__apply
+                button.group-block__skill-action__cancel
+                button.group-block__skill-action__edit
+                button.group-block__skill-action__trash
             li.group-block__skill
               input.group-block__skill-title
               .group-block__skill-value
                 input.group-block__skill-value-percent
               .group-block__skill-action
-                .group-block__skill-action__apply
-                .group-block__skill-action__cancel
-                .group-block__skill-action__edit
-                .group-block__skill-action__trash
+                button.group-block__skill-action__apply
+                button.group-block__skill-action__cancel
+                button.group-block__skill-action__edit
+                button.group-block__skill-action__trash
           .group-block__new-skill
             input.group-block__new-skill-title(name='textarea', type='text', placeholder='Новый навык')
             .group-block__new-skill-value
-              input.group-block__new-skill-value-percent
+              input.group-block__new-skill-value-percent(name='textarea', type='text', placeholder='100')
             button.group-block__new-skill-add-btn
 
         .group-block
           .group-block__title
             input.group-block__title-text(name='textarea', type='text', placeholder='Название новой группы')
             .group-block__title-action
-              .group-block__title-action__apply
-              .group-block__title-action__cancel
-              .group-block__title-action__edit
+              button.group-block__title-action__apply
+              button.group-block__title-action__cancel
+              button.group-block__title-action__edit
           ul.group-block__skill-list
             li.group-block__skill.group-block__skill
               input.group-block__skill-title
               .group-block__skill-value
                 input.group-block__skill-value-percent
               .group-block__skill-action
-                .group-block__skill-action__apply
-                .group-block__skill-action__cancel
-                .group-block__skill-action__edit
-                .group-block__skill-action__trash
+                button.group-block__skill-action__apply
+                button.group-block__skill-action__cancel
+                button.group-block__skill-action__edit
+                button.group-block__skill-action__trash
             li.group-block__skill.group-block__skill--edited
               input.group-block__skill-title
               .group-block__skill-value
                 input.group-block__skill-value-percent
               .group-block__skill-action
-                .group-block__skill-action__apply
-                .group-block__skill-action__cancel
-                .group-block__skill-action__edit
-                .group-block__skill-action__trash
+                button.group-block__skill-action__apply
+                button.group-block__skill-action__cancel
+                button.group-block__skill-action__edit
+                button.group-block__skill-action__trash
             li.group-block__skill.group-block__skill
               input.group-block__skill-title
               .group-block__skill-value
                 input.group-block__skill-value-percent
               .group-block__skill-action
-                .group-block__skill-action__apply
-                .group-block__skill-action__cancel
-                .group-block__skill-action__edit
-                .group-block__skill-action__trash
+                button.group-block__skill-action__apply
+                button.group-block__skill-action__cancel
+                button.group-block__skill-action__edit
+                button.group-block__skill-action__trash
             li.group-block__skill.group-block__skill
               input.group-block__skill-title
               .group-block__skill-value
                 input.group-block__skill-value-percent
               .group-block__skill-action
-                .group-block__skill-action__apply
-                .group-block__skill-action__cancel
-                .group-block__skill-action__edit
-                .group-block__skill-action__trash
+                button.group-block__skill-action__apply
+                button.group-block__skill-action__cancel
+                button.group-block__skill-action__edit
+                button.group-block__skill-action__trash
           .group-block__new-skill
             input.group-block__new-skill-title(name='textarea', type='text', placeholder='Новый навык')
             .group-block__new-skill-value
-              input.group-block__new-skill-value-percent
+              input.group-block__new-skill-value-percent(name='textarea', type='text', placeholder='100')
             button.group-block__new-skill-add-btn
         
 
