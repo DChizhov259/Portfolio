@@ -14,6 +14,10 @@
   max-width: 1080px;
   width: 88%;
 
+  @include tablets {
+    width: 92.2%;
+  }
+
   @include phones {
     width: 100vw;
   }
@@ -546,13 +550,18 @@
 }
 
 .admin-works__edit-block__title {
-  /* background-color: #e5ff0018; */
   font-family: "open-sans-bo";
   font-size: 18px;
   color: #414c63;
   border-bottom: 1px solid rgba(#414c63, 0.15);
   margin: 0 20px;
   padding: 25px 10px;
+
+  @include phones {
+    font-size: 16px;
+    margin: 0;
+    padding: 25px 20px;
+  }
 }
 
 .admin-works__edit-block__container {
@@ -563,19 +572,41 @@
     flex-direction: column;
     align-items: center;
   }
+
+  @include tablets {
+    padding: 30px 0;
+  }
 }
 
 .admin-works__drop-area {
+  font-family: "open-sans-sebo";
   display: block;
   min-width: 495px;
   height: 275px;
   margin-right: 30px;
   position: relative;
 
+  @include desktop-old {
+    margin-right: 0;
+  }
+
+  @include tablets {
+    min-width: auto;
+    width: 65.7%;
+    height: 33.9vw;
+    min-height: 155px;
+    min-width: 280px;
+  }
+
+  @include phones {
+    font-size: 14px;
+  }
+
   &--wait {
-    display: none;
+    display: block;
     background-color: #dee4ed;
     background-image: url("data:image/svg+xml;utf8,<svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><rect width='100%' height='100%' style='fill: none; stroke: gray; stroke-width: 1; stroke-dasharray: 10 10'/></svg>");
+    margin-bottom: 50px;
   }
 
   &__text {
@@ -587,7 +618,6 @@
     align-items: center;
     justify-content: center;
     color: rgba(#414c63, 0.5);
-    font-family: "open-sans-sebo";
     line-height: 32px;
   }
 
@@ -602,13 +632,14 @@
   }
 
   &--preview {
-    display: block;
+    display: none;
     margin-bottom: 100px;
   }
 
   &__image {
     min-width: 100%;
     height: 100%;
+    object-fit: cover;
   }
 
   &__change-btn {
@@ -622,11 +653,18 @@
 }
 
 .admin-works__edit-data {
-  /* background-color: #e5ff0060; */
   width: 500px;
-
   font-family: "open-sans-sebo";
   font-size: 16px;
+
+  @include tablets {
+    width: 70.6%;
+  }
+
+  @include phones {
+    width: 87.5%;
+    font-size: 14px;
+  }
 
   &__row {
     margin-bottom: 30px;
@@ -647,6 +685,10 @@
     padding: 15px;
     resize: none;
     background: none;
+
+    @include phones {
+      padding-top: 10px;
+    }
   }
 
   input {
@@ -666,7 +708,6 @@
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
-  margin-bottom: 10px;
 }
 
 .admin-works__edit-data__tags-item {
@@ -674,10 +715,16 @@
   padding: 6px 10px 6px 18px;
   border-radius: 30px;
   margin-right: 10px;
+  margin-bottom: 10px;
   font-family: "open-sans-sebo";
   font-size: 13px;
   color: rgba(#283340, 0.7);
   position: relative;
+
+  @include phones {
+    margin-right: 5px;
+    padding: 6px 9px 6px 15px;
+  }
 
   &:after {
     content: "";
@@ -699,6 +746,10 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+
+  @include tablets {
+    justify-content: center;
+  }
 }
 
 .admin-works__edit-data__cancel-btn {
@@ -706,6 +757,10 @@
   margin-right: 60px;
   background: transparent;
   padding: 0;
+
+  @include phones {
+    margin-right: 25px;
+  }
 }
 
 .admin-works__edit-data__save-btn {
@@ -714,6 +769,10 @@
   text-transform: uppercase;
   background-color: $orange-color;
   color: #ffffff;
+
+  @include phones {
+    padding: 20px 50px;
+  }
 }
 
 .admin-works__instance-block {
