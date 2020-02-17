@@ -9,7 +9,8 @@
   background-repeat: no-repeat;
 }
 
-.admin__about {
+.admin-container {
+  margin: 0 auto;
   max-width: 1080px;
   width: 88%;
 
@@ -128,7 +129,7 @@
   }
 }
 
-.about__title-section {
+.admin__title-section {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -146,7 +147,7 @@
   }
 }
 
-.about__title {
+.admin__title {
   color: $dark_blue-color;
   font-family: "open-sans-bo";
   font-size: 21px;
@@ -529,10 +530,210 @@
     }
   }
 }
+
+.admin-works__main-block {
+  /* background-color: #2f9fe09d; */
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-works__edit-block {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  box-shadow: 3px 3px 15px 1px #8d8d8d5b;
+}
+
+.admin-works__edit-block__title {
+  /* background-color: #e5ff0018; */
+  font-family: "open-sans-bo";
+  font-size: 18px;
+  color: #414c63;
+  border-bottom: 1px solid rgba(#414c63, 0.15);
+  margin: 0 20px;
+  padding: 25px 10px;
+}
+
+.admin-works__edit-block__container {
+  display: flex;
+  padding: 47px 30px 30px;
+
+  @include desktop-old {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.admin-works__drop-area {
+  display: block;
+  min-width: 495px;
+  height: 275px;
+  margin-right: 30px;
+  position: relative;
+
+  &--wait {
+    display: none;
+    background-color: #dee4ed;
+    background-image: url("data:image/svg+xml;utf8,<svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><rect width='100%' height='100%' style='fill: none; stroke: gray; stroke-width: 1; stroke-dasharray: 10 10'/></svg>");
+  }
+
+  &__text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgba(#414c63, 0.5);
+    font-family: "open-sans-sebo";
+    line-height: 32px;
+  }
+
+  &__download-btn {
+    margin-top: 20px;
+    padding: 15px 35px;
+    border-radius: 24px;
+    width: 180px;
+    text-transform: uppercase;
+    background-color: $orange-color;
+    color: #ffffff;
+  }
+
+  &--preview {
+    display: block;
+    margin-bottom: 100px;
+  }
+
+  &__image {
+    min-width: 100%;
+    height: 100%;
+  }
+
+  &__change-btn {
+    background-color: transparent;
+    color: $orange-color;
+    padding: 0;
+    position: absolute;
+    bottom: -40px;
+    left: 30%;
+  }
+}
+
+.admin-works__edit-data {
+  /* background-color: #e5ff0060; */
+  width: 500px;
+
+  font-family: "open-sans-sebo";
+  font-size: 16px;
+
+  &__row {
+    margin-bottom: 30px;
+  }
+
+  &__label {
+    color: rgba(#414c63, 0.5);
+    line-height: 0.9;
+  }
+
+  &__text {
+    line-height: 50px;
+  }
+
+  &__textarea {
+    line-height: 30px;
+    margin-top: 20px;
+    padding: 15px;
+    resize: none;
+    background: none;
+  }
+
+  input {
+    border: none;
+    background: none;
+    outline: none;
+    border-bottom: 1px solid #000;
+  }
+}
+
+.admin-works__edit-data__row {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-works__edit-data__tags-items {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.admin-works__edit-data__tags-item {
+  background-color: #f4f4f4;
+  padding: 6px 10px 6px 18px;
+  border-radius: 30px;
+  margin-right: 10px;
+  font-family: "open-sans-sebo";
+  font-size: 13px;
+  color: rgba(#283340, 0.7);
+  position: relative;
+
+  &:after {
+    content: "";
+    display: inline-block;
+    height: 14px;
+    width: 14px;
+    margin-left: 10px;
+    background-image: svg-load(
+      "plus.svg",
+      fill=#283340,
+      width=100%,
+      height=100%
+    );
+    transform: rotate(45deg) translate(0, 4px);
+  }
+}
+
+.admin-works__edit-data__btns {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.admin-works__edit-data__cancel-btn {
+  color: $orange-color;
+  margin-right: 60px;
+  background: transparent;
+  padding: 0;
+}
+
+.admin-works__edit-data__save-btn {
+  padding: 23px 35px;
+  border-radius: 32px;
+  text-transform: uppercase;
+  background-color: $orange-color;
+  color: #ffffff;
+}
+
+.admin-works__instance-block {
+  background-color: #e0dd2f9d;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 340px);
+  grid-gap: 30px;
+}
+
+.admin-works__instance {
+  background-color: #03cc1da8;
+  height: 560px;
+
+  &--edited {
+    background-color: #e0932fa8;
+  }
+}
 </style>
 <template lang="pug">
-  .admin
-    //- h1 Welcome to the Vue App заработало
+  .admin-panel
     header.admin__header
       .header__main
         .header__main-container.container
@@ -545,9 +746,9 @@
           button.header__nav-btn.header__nav-btn--active Обо мне
           button.header__nav-btn Работы
           button.header__nav-btn Отзывы
-    section.admin__about.container
-      .about__title-section
-        .about__title Блок «Обо мне»
+    section.admin-about.admin-container
+      .admin__title-section
+        .admin__title Блок «Обо мне»
         button.about__add-group-btn Добавить группу
       .about__group-block-container
 
@@ -664,6 +865,54 @@
             .group-block__new-skill-value
               input.group-block__new-skill-value-percent(name='textarea', type='text', placeholder='100')
             button.group-block__new-skill-add-btn
-        
+    
+    
+    section.admin-works.admin-container
+      .admin__title-section
+        .admin__title Блок «Работы»
+      .admin-works__main-block
+        .admin-works__edit-block
+          .admin-works__edit-block__title Редактирование работы
+          .admin-works__edit-block__container
+            .admin-works__drop-area.admin-works__drop-area--wait
+              .admin-works__drop-area__text Перетащите или загрузите #[br] для загрузки изображения
+                button.admin-works__drop-area__download-btn Загрузить
+            .admin-works__drop-area.admin-works__drop-area--preview
+              img(src=('../images/content/1.jpg') alt='drop-area-image').admin-works__drop-area__image
+              button.admin-works__drop-area__change-btn Изменить превью
+            form.admin-works__edit-data
+              .admin-works__edit-data__row
+                label.admin-works__edit-data__label Название
+                input.admin-works__edit-data__text
+              .admin-works__edit-data__row
+                label.admin-works__edit-data__label Ссылка
+                input.admin-works__edit-data__text
+              .admin-works__edit-data__row
+                label.admin-works__edit-data__label Описание
+                textarea.admin-works__edit-data__textarea(name="textarea", rows="4", placeholder='Опишите вашу работу')
+              .admin-works__edit-data__row
+                label.admin-works__edit-data__label Добавление тэга
+                input.admin-works__edit-data__text
+                ul.admin-works__edit-data__tags-items
+                  li.admin-works__edit-data__tags-item HTML
+                  li.admin-works__edit-data__tags-item CSS
+                  li.admin-works__edit-data__tags-item Javascript
+              .admin-works__edit-data__btns
+                button.admin-works__edit-data__cancel-btn Отмена
+                button.admin-works__edit-data__save-btn Сохранить
+        .admin-works__instance-block
+          button.admin-works__add-btn
+            .admin-works__add-btn__icon
+          .admin-works__instance
+            .admin-works__instance-image
+              .admin-works__instance-desc__tags
+            .admin-works__instance-desc
+              .admin-works__instance-desc__title
+              .admin-works__instance-desc__text
+              .admin-works__instance-desc__link
+              .admin-works__instance-desc__btns
+                .admin-works__instance-desc__edit-btn
+                .admin-works__instance-desc__delete-btn
+          .admin-works__instance.admin-works__instance--edited
 
 </template>
