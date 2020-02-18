@@ -14,6 +14,10 @@
   max-width: 1080px;
   width: 88%;
 
+  @include desktop-old {
+    width: 94%;
+  }
+
   @include tablets {
     width: 92.2%;
   }
@@ -146,8 +150,12 @@
   @include phones {
     margin: 0 auto;
     width: 88%;
-    height: 150px;
-    padding: 8% 0;
+    height: 95px;
+
+    &--about {
+      padding: 8% 0;
+      height: 150px;
+    }
   }
 }
 
@@ -547,6 +555,10 @@
   flex-direction: column;
   margin-bottom: 30px;
   box-shadow: 3px 3px 15px 1px #8d8d8d5b;
+
+  @include phones {
+    margin-bottom: 10px;
+  }
 }
 
 .admin-works__edit-block__title {
@@ -776,18 +788,243 @@
 }
 
 .admin-works__instance-block {
-  background-color: #e0dd2f9d;
   display: grid;
   grid-template-columns: repeat(auto-fit, 340px);
   grid-gap: 30px;
+  justify-content: space-around;
+
+  @include tablets {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 47.8%));
+  }
+
+  @include phones {
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, 320px);
+  }
+}
+
+.admin-works__add-btn {
+  height: 560px;
+  padding: 0;
+  background-color: $orange-color;
+  padding-bottom: 20%;
+
+  @include tablets {
+    height: 72.9vw;
+  }
+
+  @include phones {
+    height: 110px;
+  }
+
+  &__icon {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    margin: 0 auto;
+    border: 2px solid #ffffff;
+    position: relative;
+
+    @include tablets {
+      height: 19.5vw;
+      width: 19.5vw;
+    }
+
+    @include phones {
+      margin: 30px 20px;
+      height: 50px;
+      width: 50px;
+    }
+
+    p {
+      color: #ffffff;
+      font-size: 18px;
+      line-height: 30px;
+      font-family: "open-sans-bo";
+      position: absolute;
+      bottom: -80px;
+
+      @include phones {
+        width: 200px;
+        bottom: 9px;
+        transform: translate(35px 0);
+        font-size: 16px;
+      }
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      transform: translate(-50%, 50%);
+      left: 50%;
+      bottom: 50%;
+      height: 35px;
+      width: 35px;
+      background-image: svg-load(
+        "plus-lite.svg",
+        fill=#ffffff,
+        width=100%,
+        height=100%
+      );
+      @include tablets {
+        height: 4.5vw;
+        width: 4.5vw;
+      }
+      @include phones {
+        height: 11px;
+        width: 11px;
+      }
+    }
+  }
 }
 
 .admin-works__instance {
-  background-color: #03cc1da8;
+  background-color: #ffffff;
   height: 560px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 3px 3px 15px 1px #8d8d8d5b;
+
+  @include phones {
+    height: 475px;
+  }
 
   &--edited {
-    background-color: #e0932fa8;
+    filter: brightness(120%) opacity(70%);
+    box-shadow: none;
+  }
+}
+
+.admin-works__instance-image-block {
+  display: block;
+  height: 190px;
+  overflow: hidden;
+  position: relative;
+}
+
+.admin-works__instance-image {
+  object-fit: cover;
+}
+
+.admin-works__instance-desc__tags {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.admin-works__instance-desc__tag {
+  display: inline-block;
+  background-color: #f4f4f4;
+  padding: 6px 15px 6px 15px;
+  border-radius: 30px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  font-family: "open-sans-sebo";
+  font-size: 13px;
+  color: rgba(#283340, 0.7);
+}
+
+.admin-works__instance-desc {
+  flex: 1;
+  padding: 35px;
+  color: #414c63;
+
+  display: flex;
+  flex-direction: column;
+
+  @include phones {
+    padding: 25px 40px 25px 20px;
+  }
+
+  &__title {
+    font-family: "open-sans-bo";
+    font-size: 18px;
+    margin-bottom: 20px;
+
+    @include phones {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__text {
+    font-family: "open-sans-sebo";
+    font-size: 16px;
+    line-height: 30px;
+    margin-bottom: 20px;
+    opacity: 0.7;
+
+    @include phones {
+      font-size: 14px;
+      line-height: 24px;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__link {
+    font-family: "open-sans-sebo";
+    font-size: 16px;
+    color: $orange-color;
+
+    @include phones {
+      font-size: 14px;
+    }
+  }
+}
+
+.admin-works__instance-desc__btns {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.admin__instance-btn {
+  padding: 0;
+  background: transparent;
+  color: rgba(#414c63, 0.5);
+  font-family: "open-sans-sebo";
+  font-size: 16px;
+
+  @include phones {
+    font-size: 14px;
+  }
+
+  &--edit {
+    &:after {
+      content: "";
+      display: inline-block;
+      height: 19px;
+      width: 19px;
+      margin-left: 10px;
+      background-image: svg-load(
+        "pencil.svg",
+        fill=$orange-color,
+        width=100%,
+        height=100%
+      );
+      transform: translate(0, 4px);
+    }
+  }
+  &--delete {
+    &:after {
+      content: "";
+      display: inline-block;
+      height: 19px;
+      width: 19px;
+      margin-left: 10px;
+      background-image: svg-load(
+        "plus.svg",
+        fill=#bf2929,
+        width=100%,
+        height=100%
+      );
+      transform: rotate(45deg) translate(0, 4px);
+
+      @include phones {
+        transform: rotate(45deg) translate(0, 7px);
+      }
+    }
   }
 }
 </style>
@@ -806,7 +1043,7 @@
           button.header__nav-btn Работы
           button.header__nav-btn Отзывы
     section.admin-about.admin-container
-      .admin__title-section
+      .admin__title-section.admin__title-section--about
         .admin__title Блок «Обо мне»
         button.about__add-group-btn Добавить группу
       .about__group-block-container
@@ -962,16 +1199,62 @@
         .admin-works__instance-block
           button.admin-works__add-btn
             .admin-works__add-btn__icon
-          .admin-works__instance
-            .admin-works__instance-image
-              .admin-works__instance-desc__tags
-            .admin-works__instance-desc
-              .admin-works__instance-desc__title
-              .admin-works__instance-desc__text
-              .admin-works__instance-desc__link
-              .admin-works__instance-desc__btns
-                .admin-works__instance-desc__edit-btn
-                .admin-works__instance-desc__delete-btn
+              p Добавить работу
           .admin-works__instance.admin-works__instance--edited
+            .admin-works__instance-image-block
+              ul.admin-works__instance-desc__tags
+                li.admin-works__instance-desc__tag HTML
+                li.admin-works__instance-desc__tag CSS
+                li.admin-works__instance-desc__tag Javascript
+              img(src=('../images/content/1.jpg') alt='work-pic').admin-works__instance-image
+            .admin-works__instance-desc
+              .admin-works__instance-desc__title Сайт школы образования
+              .admin-works__instance-desc__text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+              a(href='http://loftschool.ru').admin-works__instance-desc__link http://loftschool.ru
+              .admin-works__instance-desc__btns
+                button.admin__instance-btn.admin__instance-btn--edit Править
+                button.admin__instance-btn.admin__instance-btn--delete Удалить
+          .admin-works__instance
+            .admin-works__instance-image-block
+              ul.admin-works__instance-desc__tags
+                li.admin-works__instance-desc__tag HTML
+                li.admin-works__instance-desc__tag CSS
+                li.admin-works__instance-desc__tag Javascript
+              img(src=('../images/content/2.jpg') alt='work-pic').admin-works__instance-image
+            .admin-works__instance-desc
+              .admin-works__instance-desc__title Сайт школы образования
+              .admin-works__instance-desc__text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+              a(href='http://loftschool.ru').admin-works__instance-desc__link http://loftschool.ru
+              .admin-works__instance-desc__btns
+                button.admin__instance-btn.admin__instance-btn--edit Править
+                button.admin__instance-btn.admin__instance-btn--delete Удалить
+          .admin-works__instance
+            .admin-works__instance-image-block
+              ul.admin-works__instance-desc__tags
+                li.admin-works__instance-desc__tag HTML
+                li.admin-works__instance-desc__tag CSS
+                li.admin-works__instance-desc__tag Javascript
+              img(src=('../images/content/3.jpg') alt='work-pic').admin-works__instance-image
+            .admin-works__instance-desc
+              .admin-works__instance-desc__title Сайт школы образования
+              .admin-works__instance-desc__text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+              a(href='http://loftschool.ru').admin-works__instance-desc__link http://loftschool.ru
+              .admin-works__instance-desc__btns
+                button.admin__instance-btn.admin__instance-btn--edit Править
+                button.admin__instance-btn.admin__instance-btn--delete Удалить
+          .admin-works__instance
+            .admin-works__instance-image-block
+              ul.admin-works__instance-desc__tags
+                li.admin-works__instance-desc__tag HTML
+                li.admin-works__instance-desc__tag CSS
+                li.admin-works__instance-desc__tag Javascript
+              img(src=('../images/content/4.jpg') alt='work-pic').admin-works__instance-image
+            .admin-works__instance-desc
+              .admin-works__instance-desc__title Сайт школы образования
+              .admin-works__instance-desc__text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+              a(href='http://loftschool.ru').admin-works__instance-desc__link http://loftschool.ru
+              .admin-works__instance-desc__btns
+                button.admin__instance-btn.admin__instance-btn--edit Править
+                button.admin__instance-btn.admin__instance-btn--delete Удалить
 
 </template>
