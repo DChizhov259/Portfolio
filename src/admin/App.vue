@@ -278,7 +278,7 @@
     &__edit {
       height: 15px;
       width: 15px;
-      background: svg-load("pencil.svg", fill=#a0a5b1, width=100%, height=100%);
+      background: svg-load("pencil.svg", fill=#a0a5b1, width=100%, height=100%) no-repeat;
       margin-right: 10px;
     }
 
@@ -308,7 +308,7 @@
             fill=#00d70a,
             width=100%,
             height=100%
-          );
+          ) no-repeat;
           margin-right: 15px;
         }
 
@@ -321,7 +321,7 @@
             fill=#bf2929,
             width=100%,
             height=100%
-          );
+          ) no-repeat;
           margin-right: 10px;
         }
       }
@@ -379,7 +379,7 @@
             fill=#00d70a,
             width=100%,
             height=100%
-          );
+          ) no-repeat;
           margin-right: 15px;
         }
         &__cancel {
@@ -391,7 +391,7 @@
             fill=#bf2929,
             width=100%,
             height=100%
-          );
+          ) no-repeat;
           margin-right: 10px;
         }
       }
@@ -446,7 +446,7 @@
     &__edit {
       height: 15px;
       width: 15px;
-      background: svg-load("pencil.svg", fill=#a0a5b1, width=100%, height=100%);
+      background: svg-load("pencil.svg", fill=#a0a5b1, width=100%, height=100%) no-repeat;
       margin-right: 15px;
     }
 
@@ -458,7 +458,7 @@
     &__trash {
       height: 15px;
       width: 15px;
-      background: svg-load("trash.svg", fill=#a0a5b1, width=100%, height=100%);
+      background: svg-load("trash.svg", fill=#a0a5b1, width=100%, height=100%) no-repeat;
       margin-right: 10px;
     }
   }
