@@ -656,6 +656,13 @@
     text-transform: uppercase;
     background-color: $orange-color;
     color: #ffffff;
+    font-family: "open-sans-bo";
+    line-height: 1.2;
+    text-align: center;
+    cursor: pointer;
+    &-def {
+      display: none;
+    }
   }
 
   &--preview {
@@ -756,16 +763,16 @@
   &:after {
     content: "";
     display: inline-block;
-    height: 14px;
-    width: 14px;
-    margin-left: 10px;
+    height: 11px;
+    width: 11px;
+    margin-left: 8px;
     background-image: svg-load(
-      "plus.svg",
-      fill=#283340,
+      "cancel.svg",
+      fill=rgba(#283340, 0.7),
       width=100%,
       height=100%
     );
-    transform: rotate(45deg) translate(0, 4px);
+    transform: translate(0, 1px);
   }
 }
 
@@ -1643,10 +1650,10 @@
               button.group-block__title-action__cancel
               button.group-block__title-action__edit
           ul.group-block__skill-list
-          .group-block__new-skill
-            input.group-block__new-skill-title(name='textarea', type='text', placeholder='Новый навык')
+          form.group-block__new-skill
+            input.group-block__new-skill-title(name='textarea', type='text', placeholder='Новый навык' required)
             .group-block__new-skill-value
-              input.group-block__new-skill-value-percent(name='textarea', type='text', placeholder='100')
+              input.group-block__new-skill-value-percent(name='textarea', type='text', placeholder='100' required)
             button.group-block__new-skill-add-btn
 
         .group-block
@@ -1693,10 +1700,10 @@
                 button.group-block__skill-action__cancel
                 button.group-block__skill-action__edit
                 button.group-block__skill-action__trash
-          .group-block__new-skill
-            input.group-block__new-skill-title(name='textarea', type='text', placeholder='Новый навык')
+          form.group-block__new-skill
+            input.group-block__new-skill-title(name='textarea', type='text', placeholder='Новый навык' required)
             .group-block__new-skill-value
-              input.group-block__new-skill-value-percent(name='textarea', type='text', placeholder='100')
+              input.group-block__new-skill-value-percent(name='textarea', type='text', placeholder='100' required)
             button.group-block__new-skill-add-btn
 
         .group-block
@@ -1743,10 +1750,10 @@
                 button.group-block__skill-action__cancel
                 button.group-block__skill-action__edit
                 button.group-block__skill-action__trash
-          .group-block__new-skill
-            input.group-block__new-skill-title(name='textarea', type='text', placeholder='Новый навык')
+          form.group-block__new-skill
+            input.group-block__new-skill-title(name='textarea', type='text', placeholder='Новый навык' required)
             .group-block__new-skill-value
-              input.group-block__new-skill-value-percent(name='textarea', type='text', placeholder='100')
+              input.group-block__new-skill-value-percent(name='textarea', type='text', placeholder='100' required)
             button.group-block__new-skill-add-btn
     
     
@@ -1756,22 +1763,23 @@
       .admin-works__main-block
         .admin-works__edit-block
           .admin-works__edit-block__title Редактирование работы
-          .admin-works__edit-block__container
+          form.admin-works__edit-block__container
             .admin-works__drop-area.admin-works__drop-area--wait
               .admin-works__drop-area__text Перетащите или загрузите #[br] для загрузки изображения
-                button.admin-works__drop-area__download-btn Загрузить
+                label.admin-works__drop-area__download-btn Загрузить
+                  input.admin-works__drop-area__download-btn-def(name='upload-photo' id='upload-photo' type='file' required)
             .admin-works__drop-area.admin-works__drop-area--preview
               img(src=('../images/content/1.jpg') alt='drop-area-image').admin-works__drop-area__image
               button.admin-works__drop-area__change-btn Изменить превью
-            form.admin-works__edit-data
+            .admin-works__edit-data
               .admin-works__edit-data__row
                 label.admin-works__edit-data__label Название
                 input.admin-works__edit-data__text
               .admin-works__edit-data__row
                 label.admin-works__edit-data__label Ссылка
-                input.admin-works__edit-data__text
+                input.admin-works__edit-data__text(name='link')
               .admin-works__edit-data__row
-                label.admin-works__edit-data__label Описание
+                label.admin-works__edit-data__label(for='textarea') Описание
                 textarea.admin-works__edit-data__textarea(name="textarea", rows="4", placeholder='Опишите вашу работу')
               .admin-works__edit-data__row
                 label.admin-works__edit-data__label Добавление тэга
@@ -1850,13 +1858,13 @@
       .admin-reviews__main-block
         .admin-reviews__edit-block
           .admin-reviews__edit-block__title Новый отзыв
-          .admin-reviews__edit-block__container
+          form.admin-reviews__edit-block__container
             .admin-reviews__edit-photo.admin-reviews__edit-photo--wait
               button.admin-reviews__edit-photo__edit-btn Добавить фото
             .admin-reviews__edit-photo.admin-reviews__edit-photo--preview
               img(src=('../images/content/userfiles/Di51WMRvTek.jpg') alt='reviews-author-avatar').admin-reviews__edit-photo__image
               button.admin-reviews__photo__change-btn Изменить фото
-            form.admin-reviews__edit-data
+            .admin-reviews__edit-data
               .admin-reviews__edit-data__two-rows
                 .admin-reviwes__edit-data__row
                   label.admin-reviews__edit-data__label Имя автора
@@ -1921,11 +1929,11 @@
         .login-block__user-name
           label.login-block__user-name__label(for='userName') Логин
           .login-block__user-name__icon
-          input.login-block__user-name__input(name='userName', type='text', id='userName')
+          input.login-block__user-name__input(name='userName' type='text' id='userName')
         .login-block__password
           label.login-block__password__label(for='password') Пароль
           .login-block__password__icon
-          input.login-block__password__input(name='password', type='password', id="password")
+          input.login-block__password__input(name='password' type='password' id="password" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$")
         button.login-block__submit-btn(name='send', type='submit', value='Отправить') Отправить
         button.login-block__close-btn
 </template>
