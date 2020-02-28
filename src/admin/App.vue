@@ -1141,6 +1141,13 @@
       bottom: -40px;
       left: 50%;
       transform: translate(-50%, 0);
+      cursor: pointer;
+      text-align: center;
+      width: 100%;
+
+      &-def {
+        display: none;
+      }
     }
   }
 
@@ -1644,21 +1651,21 @@
 
         .group-block
           .group-block__title.group-block__title--edited
-            input.group-block__title-text(name='textarea', type='text', placeholder='Название новой группы')
+            input.group-block__title-text(name='nameGroup' id='nameGroup' type='text' placeholder='Название новой группы')
             .group-block__title-action
               button.group-block__title-action__apply
               button.group-block__title-action__cancel
               button.group-block__title-action__edit
           ul.group-block__skill-list
           form.group-block__new-skill
-            input.group-block__new-skill-title(name='textarea', type='text', placeholder='Новый навык' required)
+            input.group-block__new-skill-title(name='nameSkill' id='nameSkill' type='text' placeholder='Новый навык' required)
             .group-block__new-skill-value
-              input.group-block__new-skill-value-percent(name='textarea', type='text', placeholder='100' required)
-            button.group-block__new-skill-add-btn
+              input.group-block__new-skill-value-percent(name='skillValue' id='skillValue' type='number' min='0' max='100' placeholder='100' required)
+            button.group-block__new-skill-add-btn(name='skillAddBtn' id='skillAddBtn' type='submit')
 
         .group-block
           .group-block__title.group-block__title--edited
-            input.group-block__title-text(name='textarea', type='text', placeholder='Название новой группы')
+            input.group-block__title-text(name='nameGroup' id='nameGroup' type='text' placeholder='Название новой группы')
             .group-block__title-action
               button.group-block__title-action__apply
               button.group-block__title-action__cancel
@@ -1701,14 +1708,14 @@
                 button.group-block__skill-action__edit
                 button.group-block__skill-action__trash
           form.group-block__new-skill
-            input.group-block__new-skill-title(name='textarea', type='text', placeholder='Новый навык' required)
+            input.group-block__new-skill-title(name='nameSkill' id='nameSkill' type='text' placeholder='Новый навык' required)
             .group-block__new-skill-value
-              input.group-block__new-skill-value-percent(name='textarea', type='text', placeholder='100' required)
-            button.group-block__new-skill-add-btn
+              input.group-block__new-skill-value-percent(name='skillValue' id='skillValue' type='number' min='0' max='100' placeholder='100' required)
+            button.group-block__new-skill-add-btn(name='skillAddBtn' id='skillAddBtn' type='submit')
 
         .group-block
           .group-block__title
-            input.group-block__title-text(name='textarea', type='text', placeholder='Название новой группы')
+            input.group-block__title-text(name='nameGroup' id='nameGroup' type='text' placeholder='Название новой группы')
             .group-block__title-action
               button.group-block__title-action__apply
               button.group-block__title-action__cancel
@@ -1751,10 +1758,10 @@
                 button.group-block__skill-action__edit
                 button.group-block__skill-action__trash
           form.group-block__new-skill
-            input.group-block__new-skill-title(name='textarea', type='text', placeholder='Новый навык' required)
+            input.group-block__new-skill-title(name='nameSkill' id='nameSkill' type='text' placeholder='Новый навык' required)
             .group-block__new-skill-value
-              input.group-block__new-skill-value-percent(name='textarea', type='text', placeholder='100' required)
-            button.group-block__new-skill-add-btn
+              input.group-block__new-skill-value-percent(name='skillValue' id='skillValue' type='number' min='0' max='100' placeholder='100' required)
+            button.group-block__new-skill-add-btn(name='skillAddBtn' id='skillAddBtn' type='submit')
     
     
     section.admin-works.admin-container
@@ -1767,30 +1774,30 @@
             .admin-works__drop-area.admin-works__drop-area--wait
               .admin-works__drop-area__text Перетащите или загрузите #[br] для загрузки изображения
                 label.admin-works__drop-area__download-btn Загрузить
-                  input.admin-works__drop-area__download-btn-def(name='upload-photo' id='upload-photo' type='file' required)
+                  input.admin-works__drop-area__download-btn-def(name='uploadWorkImage' id='uploadWorkImage' type='file' required)
             .admin-works__drop-area.admin-works__drop-area--preview
               img(src=('../images/content/1.jpg') alt='drop-area-image').admin-works__drop-area__image
               button.admin-works__drop-area__change-btn Изменить превью
             .admin-works__edit-data
               .admin-works__edit-data__row
-                label.admin-works__edit-data__label Название
-                input.admin-works__edit-data__text
+                label.admin-works__edit-data__label(for='workName') Название
+                input.admin-works__edit-data__text(name='workName' id='workName' type='text' required)
               .admin-works__edit-data__row
-                label.admin-works__edit-data__label Ссылка
-                input.admin-works__edit-data__text(name='link')
+                label.admin-works__edit-data__label(for='workLink') Ссылка
+                input.admin-works__edit-data__text(name='workLink' id='workLink' type='url' required)
               .admin-works__edit-data__row
-                label.admin-works__edit-data__label(for='textarea') Описание
-                textarea.admin-works__edit-data__textarea(name="textarea", rows="4", placeholder='Опишите вашу работу')
+                label.admin-works__edit-data__label(for='workDesc') Описание
+                textarea.admin-works__edit-data__textarea(name="workDesc" id="workDesc" rows="4" placeholder='Опишите вашу работу' required)
               .admin-works__edit-data__row
-                label.admin-works__edit-data__label Добавление тэга
-                input.admin-works__edit-data__text
+                label.admin-works__edit-data__label(for='workTags') Добавление тэга
+                input.admin-works__edit-data__text(name='workTags' id='workTags' type='text')
                 ul.admin-works__edit-data__tags-items
                   li.admin-works__edit-data__tags-item HTML
                   li.admin-works__edit-data__tags-item CSS
                   li.admin-works__edit-data__tags-item Javascript
               .admin-works__edit-data__btns
-                button.admin-works__edit-data__cancel-btn Отмена
-                button.admin-works__edit-data__save-btn Сохранить
+                button.admin-works__edit-data__cancel-btn(name='workCancelBtn' id='workCancelBtn' type='reset') Отмена
+                button.admin-works__edit-data__save-btn(name='workSaveBtn' id='workSaveBtn' type='submit') Сохранить
         .admin-works__instance-block
           button.admin-works__add-btn
             .admin-works__add-btn__icon
@@ -1860,24 +1867,25 @@
           .admin-reviews__edit-block__title Новый отзыв
           form.admin-reviews__edit-block__container
             .admin-reviews__edit-photo.admin-reviews__edit-photo--wait
-              button.admin-reviews__edit-photo__edit-btn Добавить фото
+              label.admin-reviews__edit-photo__edit-btn Добавить фото
+                input.admin-reviews__edit-photo__edit-btn-def(name='uploadReviewPhoto' id='uploadReviewPhoto' type='file')
             .admin-reviews__edit-photo.admin-reviews__edit-photo--preview
               img(src=('../images/content/userfiles/Di51WMRvTek.jpg') alt='reviews-author-avatar').admin-reviews__edit-photo__image
               button.admin-reviews__photo__change-btn Изменить фото
             .admin-reviews__edit-data
               .admin-reviews__edit-data__two-rows
                 .admin-reviwes__edit-data__row
-                  label.admin-reviews__edit-data__label Имя автора
-                  input.admin-reviews__edit-data__text
+                  label.admin-reviews__edit-data__label(for='reviewAuthorName') Имя автора
+                  input.admin-reviews__edit-data__text(name='reviewAuthorName' id='reviewAuthorName' type='text' required)
                 .admin-reviwes__edit-data__row
-                  label.admin-reviews__edit-data__label Титул автора
-                  input.admin-reviews__edit-data__text
+                  label.admin-reviews__edit-data__label(for='reviewAuthorPosition') Титул автора
+                  input.admin-reviews__edit-data__text(name='reviewAuthorPosition' id='reviewAuthorPosition' type='text' required)
               .admin-reviwes__edit-data__textreview
-                label.admin-reviews__edit-data__label Отзыв
-                textarea.admin-reviews__edit-data__textarea(name="textarea", rows="3", placeholder="Ваш отзыв")
+                label.admin-reviews__edit-data__label(for='reviewText') Отзыв
+                textarea.admin-reviews__edit-data__textarea(name='reviewText' id='reviewText' rows='3' placeholder='Ваш отзыв' required)
               .admin-reviews__edit-data__btns
-                button.admin-reviews__edit-data__cancel-btn Отмена
-                button.admin-reviews__edit-data__save-btn Сохранить
+                button.admin-reviews__edit-data__cancel-btn(name='reviewCancelBtn' id='reviewCancelBtn' type='reset') Отмена
+                button.admin-reviews__edit-data__save-btn(name='reviewSaveBtn' id='reviewSaveBtn' type='submit') Сохранить
         .admin-reviews__instance-block
           button.admin-reviews__add-btn
             .admin-reviews__add-btn__icon
