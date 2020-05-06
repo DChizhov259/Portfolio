@@ -105,9 +105,9 @@ module.exports = (env, argv) => {
       extensions: ["*", ".js", ".vue", ".json"]
     },
     devServer: {
-      historyApiFallback: true,
-      noInfo: false,
-      overlay: true
+      historyApiFallback: true, //при переходе на несуществующую страницу будет возвращен index.html
+      noInfo: false, //не будет выводиться сообщение об успешной сборке, только ошибки
+      overlay: true //ошибки будут выводиться прямо на сайте
     },
     performance: {
       hints: false
