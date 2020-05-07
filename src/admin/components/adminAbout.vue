@@ -5,19 +5,7 @@ section.admin-about.admin-container
     button.about__add-group-btn Добавить группу
   .about__group-block-container
 
-    .group-block
-      .group-block__title.group-block__title--edited
-        input.group-block__title-text(name='nameGroup' id='nameGroup' type='text' placeholder='Название новой группы')
-        .group-block__title-action
-          button.group-block__title-action__apply
-          button.group-block__title-action__cancel
-          button.group-block__title-action__edit
-      ul.group-block__skill-list
-      form.group-block__new-skill
-        input.group-block__new-skill-title(name='nameSkill' id='nameSkill' type='text' placeholder='Новый навык' required)
-        .group-block__new-skill-value
-          input.group-block__new-skill-value-percent(name='skillValue' id='skillValue' type='number' min='0' max='100' placeholder='100' required)
-        button.group-block__new-skill-add-btn(name='skillAddBtn' id='skillAddBtn' type='submit')
+    group-block
 
     .group-block
       .group-block__title.group-block__title--edited
@@ -121,7 +109,13 @@ section.admin-about.admin-container
 </template>
 
 <script>
-export default {};
+import groupBlock from "./groupBlock";
+
+export default {
+  components: {
+    groupBlock,
+  },
+};
 </script>
 
 <style lang="postcss" scoped>
