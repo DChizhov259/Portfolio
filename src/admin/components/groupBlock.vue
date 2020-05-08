@@ -8,6 +8,18 @@
       button.group-block__title-action__edit
   ul.group-block__skill-list
     pre {{skillList}}
+    li.group-block__skill(v-for="skill in skillList")
+      .group-block__skill-title {{skill.title}}
+      .group-block__skill-value
+        .group-block__skill-value-percent {{skill.value}}
+      .group-block__skill-action
+        button.group-block__skill-action__apply
+        button.group-block__skill-action__cancel
+        button.group-block__skill-action__edit
+        button.group-block__skill-action__trash(
+          type="button"
+          @click="removeSkill"
+        )
   form.group-block__new-skill
     input.group-block__new-skill-title(
       name='nameSkill' 
@@ -28,12 +40,18 @@
         required
         v-model="skill.value"
         @keydown.enter="addSkill")
-    button.group-block__new-skill-add-btn(name='skillAddBtn' id='skillAddBtn' type='submit')
+    button.group-block__new-skill-add-btn(name='skillAddBtn' id='skillAddBtn' type='submit' @click="addSkill")
 </template>
 
 <script>
+// import skill from "./skill";
+
 let uniqId = 0;
+
 export default {
+  // components: {
+  //   skill,
+  // },
   data() {
     return {
       skillList: [],
@@ -44,6 +62,7 @@ export default {
       },
     };
   },
+
   methods: {
     addSkill() {
       uniqId++;
@@ -52,11 +71,17 @@ export default {
       this.skill.title = "";
       this.skill.value = "";
     },
+    removeSkill() {
+      // this.skillList = this.skillList.filter(
+      //   (item) => item.id != this.skill.id
+      // );
+      console.log(this.skill.id);
+    },
   },
 };
 </script>
 
-<style lang="postcss" scoped>
+<style lang="postcss">
 @import "../../styles/mixins.pcss";
 
 .group-block {
@@ -253,6 +278,7 @@ export default {
 
   &-value {
     width: 75px;
+    display: flex;
 
     @include tablets {
       width: 70px;
