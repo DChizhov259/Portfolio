@@ -1,24 +1,22 @@
 <template lang="pug">
-div
-  li.group-block__skill(v-for="skill in skillList")
-    .group-block__skill-title {{skill.title}}
-    .group-block__skill-value
-      .group-block__skill-value-percent {{skill.value}}
-    .group-block__skill-action
-      button.group-block__skill-action__apply
-      button.group-block__skill-action__cancel
-      button.group-block__skill-action__edit
-      button.group-block__skill-action__trash(
-        type="button"
-        @click="removeSkill"
-      )
+.group-block__skill-item
+  .group-block__skill-title {{skill.title}}
+  .group-block__skill-value
+    .group-block__skill-value-percent {{skill.value}}
+  .group-block__skill-action
+    button.group-block__skill-action__apply
+    button.group-block__skill-action__cancel
+    button.group-block__skill-action__edit
+    button.group-block__skill-action__trash(
+      type="button"
+      @click="removeSkill"
+    )
 </template>
 
 <script>
 export default {
   props: {
     skill: Object,
-    skillList: Array,
   },
   methods: {
     removeSkill() {
@@ -92,6 +90,16 @@ export default {
         }
       }
     }
+  }
+
+  &-item {
+    height: inherit;
+    width: inherit;
+    display: flex;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    margin-top: 2px;
   }
 
   &-title {

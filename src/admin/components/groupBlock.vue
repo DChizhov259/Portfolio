@@ -7,68 +7,37 @@
       button.group-block__title-action__cancel
       button.group-block__title-action__edit
   ul.group-block__skill-list
-    pre {{skillList}}
-    skillItem(
-      :skillList="skillList"
-      :skill="skill"
-      @removeSkill="removeSkill"
-    )
-  form.group-block__new-skill
-    input.group-block__new-skill-title(
-      name='nameSkill' 
-      id='nameSkill' 
-      type='text' 
-      placeholder='Новый навык' 
-      required 
-      v-model="skill.title"
-      @keydown.enter="addSkill")
-    .group-block__new-skill-value
-      input.group-block__new-skill-value-percent(
-        name='skillValue' 
-        id='skillValue' 
-        type='number' 
-        min='0' 
-        max='100' 
-        placeholder='100' 
-        required
-        v-model="skill.value"
-        @keydown.enter="addSkill")
-    button.group-block__new-skill-add-btn(name='skillAddBtn' id='skillAddBtn' type='submit' @click="addSkill")
+    li.group-block__skill(v-for="skill in skillList")
+      skillItem(
+        :skill="skill"
+        @removeSkill="removeSkill"
+      )
+  skill-input(
+    @addSkill="addSkill"
+  )
 </template>
 
 <script>
 import skillItem from "./skillItem";
-
-let uniqId = 0;
+import skillInput from "./skillInput";
 
 export default {
   components: {
     skillItem,
+    skillInput,
   },
   data() {
     return {
       skillList: [],
-      skill: {
-        id: 0,
-        title: "",
-        value: "",
-      },
     };
   },
 
   methods: {
-    addSkill() {
-      uniqId++;
-      this.skill.id = uniqId;
-      this.skillList.push({ ...this.skill });
-      this.skill.title = "";
-      this.skill.value = "";
+    addSkill(skill) {
+      this.skillList.push(skill);
     },
     removeSkill(skillId) {
-      // this.skillList = this.skillList.filter(
-      //   (item) => item.id != this.skill.id
-      // );
-      console.log(skillId);
+      this.skillList = this.skillList.filter((item) => item.id != skillId);
     },
   },
 };
@@ -186,45 +155,96 @@ export default {
   align-self: flex-start;
 }
 
-.group-block__new-skill {
+.group-block__skill {
   display: flex;
-  justify-content: flex-end;
-  justify-self: center;
-  width: 92.4%;
-  padding-right: 10px;
-  margin-bottom: 25px;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
   font-family: "open-sans-regular";
   font-size: 16px;
-  line-height: 2.5;
   color: $dark_blue-color;
 
+  @include tablets {
+    margin-top: 15px;
+  }
+
   @include phones {
-    line-height: 2.7;
+    margin-top: 20px;
+  }
+
+  &:first-child {
+    margin-top: 30px;
+  }
+
+  &--edited {
+    .group-block__skill {
+      &-title,
+      &-value {
+        border-bottom: 1px solid #000;
+      }
+      &-action {
+        &__edit,
+        &__trash {
+          display: none;
+        }
+        &__apply {
+          display: initial;
+          height: 15px;
+          width: 15px;
+          background: svg-load(
+              "tick.svg",
+              fill=#00d70a,
+              width=100%,
+              height=100%
+            )
+            no-repeat;
+          margin-right: 15px;
+        }
+        &__cancel {
+          display: initial;
+          height: 15px;
+          width: 15px;
+          background: svg-load(
+              "cross.svg",
+              fill=#bf2929,
+              width=100%,
+              height=100%
+            )
+            no-repeat;
+          margin-right: 10px;
+        }
+      }
+    }
   }
 
   &-title {
-    width: 45%;
-    margin-right: 10px;
-    padding-left: 20px;
+    width: 56.7%;
+    height: 100%;
+    margin-left: 9px;
+    margin-right: 4.2%;
     resize: none;
     border: none;
     background: none;
     outline: none;
-    border-bottom: 1px solid #000;
 
-    @include phones {
-      padding-left: 10px;
+    @include tablets {
+      width: 47%;
     }
 
-    &::placeholder {
-      opacity: 0.5;
+    @include phones {
+      width: 44%;
+      font-size: 14px;
     }
   }
 
   &-value {
-    border-bottom: 1px solid #000;
     width: 75px;
-    margin-right: 6.3%;
+    display: flex;
+
+    @include tablets {
+      width: 70px;
+    }
     &:after {
       content: "%";
     }
@@ -236,31 +256,33 @@ export default {
       border: none;
       background: none;
       outline: none;
-
-      &::placeholder {
-        opacity: 0.5;
-      }
     }
   }
 
-  &-add-btn {
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    background-color: $orange-color;
+  &-action {
+    text-align: right;
+    display: flex;
+    margin-left: auto;
 
-    &::before {
-      content: "";
-      display: block;
+    &__edit {
       height: 15px;
       width: 15px;
-      background-image: svg-load(
-        "plus.svg",
-        fill=#ffffff,
-        width=100%,
-        height=100%
-      );
-      margin: 0 auto;
+      background: svg-load("pencil.svg", fill=#a0a5b1, width=100%, height=100%)
+        no-repeat;
+      margin-right: 15px;
+    }
+
+    &__apply,
+    &__cancel {
+      display: none;
+    }
+
+    &__trash {
+      height: 15px;
+      width: 15px;
+      background: svg-load("trash.svg", fill=#a0a5b1, width=100%, height=100%)
+        no-repeat;
+      margin-right: 10px;
     }
   }
 }
